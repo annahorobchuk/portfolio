@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"/Users/ana/Documents/Portfolio/Workload api use case/workload-images/main-image.png\" \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/workload-api-cover.png\")",
+      "Bash(kill -9 40383)",
+      "Bash(ruby .claude/dev-server.rb)",
+      "Bash(kill -9 74793)",
+      "Bash(ruby .claude/dev-server.rb > /tmp/dev-server.log 2>&1 & *)",
+      "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|webp\\)$\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/design system use case/All components.png\" \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/design-system-all-components.png\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/design system use case/Color tokens.png\" \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/design-system-color-tokens.png\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/design system use case/Design variables.png\" \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/design-system-design-variables.png\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/design system use case/Dimensional tokens.png\" \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/design-system-dimensional-tokens.png\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/design system use case/Full component page example.png\" \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/design-system-full-component-page.png\")",
+      "Bash(ls -lh /Users/ana/Downloads/1789741050063.jpeg)",
+      "Bash(cp /Users/ana/Downloads/1789741050063.jpeg /Users/ana/Documents/Portfolio/portfolio-website/assets/img/about.jpg)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

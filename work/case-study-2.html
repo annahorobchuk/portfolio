@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workload API — Anna Horobchuk</title>
+  <meta name="description" content="Design work on Workload API: enabling deployment management and monitoring with a comprehensive set of design entities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=3">
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="wrap site-nav__inner">
+      <span class="status-badge">
+        <span class="status-badge__dot" aria-hidden="true"></span>
+        Available for New Project
+      </span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Toggle menu</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../experiments.html">Experiments</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="wrap breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#work">Work</a></li>
+        <li aria-current="page">Workload API</li>
+      </ol>
+    </nav>
+
+    <section class="cs-hero">
+      <div class="wrap">
+        <p class="cs-eyebrow">Case study</p>
+        <h1 class="cs-title">Workload API</h1>
+        <p class="prose" style="color: var(--ink-muted);">
+          Designing a workload orchestration platform that enables teams to deploy, monitor, and manage customer code at scale.
+        </p>
+        <div class="cs-banner"><img src="../assets/img/workload-api-cover.png" alt="Workload API console interface" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <dl class="cs-facts">
+        <div><dt>Role</dt><dd>Design Lead</dd></div>
+        <div><dt>Team</dt><dd>Design, Engineering, Product</dd></div>
+        <div><dt>Timeline</dt><dd>8+ months</dd></div>
+        <div><dt>Platform</dt><dd>Web</dd></div>
+      </dl>
+
+      <div class="prose" style="padding-bottom: 60px;">
+        <h2>Overview</h2>
+        <p>The Workload API is a platform that enables teams to deploy, monitor, and manage customer code at scale. Designed the core set of entities and console interface that generalize the experience across different workload types and deployment scenarios.</p>
+
+        <h2>The problem</h2>
+        <p>When deploying from source code, the system needs metadata to build a container image: a reference to the uploaded source code, and instructions for how to produce a Dockerfile. This requires capturing multiple, often conditional inputs that vary by build type, creating complexity and confusion in the API design.</p>
+
+        <p>Our solution was to group all build inputs into a single <code>ImageBuildConfig</code> object on the Container entity. The Dockerfile source is modeled as a discriminated union, so each variant carries exactly the fields it needs—eliminating optional parameters and conditional logic that lead to invalid states.</p>
+
+        <div class="image-slider">
+          <div class="slider-main">
+            <img id="problem-main-image" src="../assets/img/workload-problem-console-diagram.png" alt="Problem architecture diagram">
+            <button class="slider-arrow prev" onclick="problemSlider.prev()" aria-label="Previous image">←</button>
+            <button class="slider-arrow next" onclick="problemSlider.next()" aria-label="Next image">→</button>
+          </div>
+          <div class="slider-thumbnails" id="problem-thumbnails">
+            <img class="thumbnail active" src="../assets/img/workload-problem-console-diagram.png" alt="System architecture" onclick="problemSlider.showImage(0)" title="System architecture overview">
+            <img class="thumbnail" src="../assets/img/workload-problem-diagram-actions.png" alt="Action flow" onclick="problemSlider.showImage(1)" title="Action flow and interactions">
+          </div>
+        </div>
+
+        <h2>Research</h2>
+        <p>Before committing to engineering implementation, we conducted user testing sessions to pressure-test the redesigned Workload API experience. Each 30–45 minute session involved participants interacting with an interactive prototype we created, allowing us to observe real-world usage patterns and uncover friction points in the API design.</p>
+
+        <p>The prototype was built using <strong>Claude Design</strong>, enabling us to rapidly iterate and test different interaction patterns without waiting for implementation cycles. This approach allowed us to validate assumptions early and make confident decisions about what would ship.</p>
+
+        <p>Our priority throughout was surfacing pain points while there was still time to act on them—testing confirmed that the simplified entity model and discriminated union approach resonated with users and significantly reduced cognitive load when working with the API.</p>
+
+        <div class="image-slider">
+          <div class="slider-main">
+            <img id="research-main-image" src="../assets/img/workload-research-screenshot.png" alt="Research prototype screenshot">
+            <button class="slider-arrow prev" onclick="researchSlider.prev()" aria-label="Previous image">←</button>
+            <button class="slider-arrow next" onclick="researchSlider.next()" aria-label="Next image">→</button>
+          </div>
+          <div class="slider-thumbnails" id="research-thumbnails">
+            <img class="thumbnail active" src="../assets/img/workload-research-screenshot.png" alt="First prototype" onclick="researchSlider.showImage(0)" title="First prototype screenshot">
+            <img class="thumbnail" src="../assets/img/workload-research-fixed.png" alt="Research session recordings" onclick="researchSlider.showImage(1)" title="Research session recordings and notes">
+          </div>
+        </div>
+
+        <h2>Design</h2>
+        <p>Once we had a clear understanding of the problems to be addressed, the PM team started creating 6-pagers and PR/FAQs that described the vision for the redesigned platform. We adopted the <a href="https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes" target="_blank" rel="noopener">working backwards methodology</a> pioneered by Amazon—writing the customer announcement and FAQ before designing the product.</p>
+
+        <p>This approach helped everyone on the team, including design, to assess and interrogate the platform's viability, guide development decisions, and maintain a relentless customer-centric focus. Rather than iterating on implementation details, we debated the core value proposition and customer experience first, ensuring alignment before engineering began.</p>
+
+        <p>The design process focused on creating a unified console experience that made complex workload orchestration feel intuitive—providing clear visibility into build status, configuration options, and workload management through a consistent, tab-based interface.</p>
+
+        <div class="image-slider">
+          <div class="slider-main">
+            <img id="design-main-image" src="../assets/img/workload-design-console.png" alt="Design console screenshot">
+            <button class="slider-arrow prev" onclick="designSlider.prev()" aria-label="Previous image">←</button>
+            <button class="slider-arrow next" onclick="designSlider.next()" aria-label="Next image">→</button>
+          </div>
+          <div class="slider-thumbnails" id="design-thumbnails">
+            <img class="thumbnail active" src="../assets/img/workload-design-console.png" alt="Console overview" onclick="designSlider.showImage(0)" title="Console with design updates">
+            <img class="thumbnail" src="../assets/img/workload-design-build-tab.png" alt="Build tab" onclick="designSlider.showImage(1)" title="Build tab in progress">
+            <img class="thumbnail" src="../assets/img/workload-design-config-tab.png" alt="Config tab" onclick="designSlider.showImage(2)" title="Configuration tab">
+            <img class="thumbnail" src="../assets/img/workload-design-workloads-tab.png" alt="Workloads tab" onclick="designSlider.showImage(3)" title="Workloads tab">
+          </div>
+        </div>
+
+        <h2>Outcome</h2>
+        <p>The research and iterative design process validated our approach: by designing around clear, composable entities and discriminated unions, we achieved a dramatic reduction in API surface area and cognitive load. User feedback consistently highlighted that the simplified mental model was immediately intuitive—no longer wrestling with optional fields or conditional logic.</p>
+
+        <p>The redesigned workflow was reduced to two core actions: <strong>Configure & Build</strong>, and <strong>Deploy & Monitor</strong>. This simplification emerged directly from research findings showing where users struggled most. The new entity model, complemented by a unified console interface with clear status indicators and streamlined interactions, shipped as the foundation for Workload API v2.</p>
+
+        <p>The outcome demonstrated the value of designing with constraints (discriminated unions force explicit, valid states), involving users early (testing the prototype before implementation), and maintaining a relentless focus on cognitive simplicity over feature completeness.</p>
+
+        <div class="image-slider">
+          <div class="slider-main">
+            <img id="outcome-main-image" src="../assets/img/workload-outcome-components.png" alt="Outcome deliverable">
+            <button class="slider-arrow prev" onclick="outcomeSlider.prev()" aria-label="Previous image">←</button>
+            <button class="slider-arrow next" onclick="outcomeSlider.next()" aria-label="Next image">→</button>
+          </div>
+          <div class="slider-thumbnails" id="outcome-thumbnails">
+            <img class="thumbnail active" src="../assets/img/workload-outcome-components.png" alt="Components" onclick="outcomeSlider.showImage(0)" title="Unified component library">
+            <img class="thumbnail" src="../assets/img/workload-outcome-flow.png" alt="User flow" onclick="outcomeSlider.showImage(1)" title="Simplified 2-step user flow">
+            <img class="thumbnail" src="../assets/img/workload-outcome-pattern-1.png" alt="Pattern 1" onclick="outcomeSlider.showImage(2)" title="Pattern language">
+            <img class="thumbnail" src="../assets/img/workload-outcome-pattern-2.png" alt="Pattern 2" onclick="outcomeSlider.showImage(3)" title="Consistent patterns">
+            <img class="thumbnail" src="../assets/img/workload-outcome-statuses.png" alt="Statuses" onclick="outcomeSlider.showImage(4)" title="Clear status feedback">
+          </div>
+        </div>
+
+        <p style="margin-top: 40px;">
+          <a class="btn-text" href="../index.html"><span aria-hidden="true">&larr;</span> Back to all work</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="connect" aria-labelledby="connect-title">
+      <div class="wrap">
+        <h2 class="connect__title" id="connect-title">Let&rsquo;s Connect</h2>
+        <p class="connect__text">Feel free to reach out for collaborations or just a friendly hello &#128522;</p>
+        <a class="connect__email" href="mailto:annagorobchyk@gmail.com">annagorobchyk@gmail.com</a>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">
+            Linkedin
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">
+            Medium
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="mailto:annagorobchyk@gmail.com">
+            Email
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&ouid=112848843176912504899&rtpof=true&sd=true" target="_blank" rel="noopener">
+            CV
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="colophon">&copy; 2026 Anna Horobchuk</div>
+  </footer>
+
+  <button class="to-top" type="button">
+    <span class="sr-only">Back to top</span>
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Image slider functionality for Dribbble-style galleries
+    function createSlider(mainImageId, thumbnailsContainerId) {
+      return {
+        currentIndex: 0,
+        images: Array.from(document.querySelectorAll(`#${thumbnailsContainerId} img`)),
+        mainImage: document.getElementById(mainImageId),
+
+        showImage(index) {
+          if (index < 0 || index >= this.images.length) return;
+
+          this.currentIndex = index;
+          const img = this.images[index];
+
+          // Update main image
+          this.mainImage.src = img.src;
+          this.mainImage.alt = img.alt;
+
+          // Update thumbnail active state
+          this.images.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === index);
+          });
+
+          // Scroll thumbnail into view
+          img.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        },
+
+        next() {
+          const nextIndex = (this.currentIndex + 1) % this.images.length;
+          this.showImage(nextIndex);
+        },
+
+        prev() {
+          const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+          this.showImage(prevIndex);
+        }
+      };
+    }
+
+    // Initialize sliders for each section
+    const problemSlider = createSlider('problem-main-image', 'problem-thumbnails');
+    const researchSlider = createSlider('research-main-image', 'research-thumbnails');
+    const designSlider = createSlider('design-main-image', 'design-thumbnails');
+    const outcomeSlider = createSlider('outcome-main-image', 'outcome-thumbnails');
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') problemSlider.prev();
+      if (e.key === 'ArrowRight') problemSlider.next();
+    });
+  </script>
+</body>
+</html>

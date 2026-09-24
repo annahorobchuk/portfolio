@@ -1,0 +1,40 @@
+{
+  "_source": "Frame 'Change Logs' (node 2177:478), page 'Theme.json I OpenCode theme'. Exact text, order preserved, extracted 2026-07-26.",
+  "title": "Design Change Log - my-theme.json",
+  "rounds": [
+    {
+      "round": 1,
+      "title": "Round 1 - UI Backgrounds",
+      "changes": [
+        { "token": "darkElement", "from": "#262626", "to": "#2A3036", "reason": "prompt input bg" },
+        { "token": "darkPanel", "from": "#141414", "to": "#181D21", "reason": "user message bg" }
+      ]
+    },
+    {
+      "round": 2,
+      "title": "Round 2 - Fine-Tuning",
+      "changes": [
+        { "token": "darkCyan", "from": "#30AAB2", "to": "#909BF5", "reason": "restore purple primary" },
+        { "token": "darkPink (iterated)", "from": "#E98AD6", "to": "#61BFC5", "reason": "syntax-string: 4 iterations → final #61BFC5" },
+        { "action": "renamed", "from": "darkPink", "to": "darkTurquoise" },
+        { "token": "lightPink", "from": "#D547B8", "to": "#00949F" },
+        { "action": "renamed", "from": "lightPink", "to": "lightTurquoise" }
+      ]
+    },
+    {
+      "round": 3,
+      "title": "Round 3 - Syntax Saturation Reduction",
+      "changes": [
+        { "token": "darkSyntaxYellow", "from": "#E5D74C", "to": "#CEB31C", "reason": "syntaxNumber — less vivid" },
+        { "action": "new", "token": "darkSyntaxOrangeMuted", "hex": "#EDA769", "reason": "syntaxType only — split from syntaxFunction" },
+        { "action": "removed", "token": "darkSyntaxOrangeMuted", "hex": "#EDA769", "reason": "syntaxType only — split from syntaxFunction" },
+        { "token": "darkSyntaxOrange", "from": "#E98C3B (or-50)", "to": "#EDA769 (or-40)", "reason": "syntaxNumber — less vivid; syntaxType reassigned back to darkSyntaxOrange" }
+      ]
+    }
+  ],
+  "designerAnnotations": [
+    "Teal header text -- increased lightness 15% specifically for table headers and H2/H3 headings to clear contrast more comfortably",
+    "Table highlight colors -- slightly desaturated orange so turquoise and ourple carry more weight as primary roles\n(the two most visually aggressive orange and green)"
+  ],
+  "_annotationNote": "Annotations quoted verbatim including the original typo 'ourple' (purple)."
+}

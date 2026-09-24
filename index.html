@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anna Horobchuk — Product Designer</title>
+  <meta name="description" content="Anna Horobchuk is a product designer focused on user-centric, human experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+</head>
+<body>
+
+  <!-- ============================================================ NAV -->
+  <header class="site-nav">
+    <div class="wrap site-nav__inner">
+      <span class="status-badge">
+        <span class="status-badge__dot" aria-hidden="true"></span>
+        Available for New Project
+      </span>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Toggle menu</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experiments.html">Experiments</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================================================= HERO -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div>
+          <h1 class="hero__title">
+            I&rsquo;m Anna, a Product Designer at <span class="accent">DataRobot.</span>
+            I create clarity from complexity, and help teams ship products that create impact.
+          </h1>
+          <p class="hero__meta">
+            Previously at <a href="https://www.datarobot.com/" target="_blank" rel="noopener">DataRobot</a> and <a href="https://intellias.com/" target="_blank" rel="noopener">Intellias</a>
+          </p>
+        </div>
+
+        <div class="portrait">
+          <img src="assets/img/portrait.webp" alt="Anna Horobchuk" style="object-position: 44% center;">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= WORK -->
+    <section class="work" id="work" aria-label="Selected work">
+      <div class="wrap work__grid">
+
+        <a class="case-card case-card--lavender" href="work/protected.html?to=case-study-2.html">
+          <span class="badge-wip">Case study</span>
+          <h2 class="case-card__title">Workload API</h2>
+          <p class="case-card__desc">Enable workload deployment management and monitoring. Designed a set of entities to generalize and simplify execution and monitoring of customer code.</p>
+          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
+          <div class="case-card__thumb"><img src="assets/img/workload-api-cover.png" alt="Workload API console interface"></div>
+        </a>
+
+        <a class="case-card case-card--periwinkle" href="work/protected.html?to=case-study-3.html">
+          <span class="badge-wip">Case study</span>
+          <h2 class="case-card__title">Design System</h2>
+          <p class="case-card__desc">A scalable design system that unified UI patterns across product teams.</p>
+          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
+          <div class="case-card__thumb"><img src="assets/img/design-system-cover.svg" alt="Design system component previews"></div>
+        </a>
+
+        <a class="case-card case-card--terminal" href="work/protected.html?to=cli-theme%2Findex.html">
+          <span class="badge-wip">Shipped &middot; 2026</span>
+          <h2 class="case-card__title">OpenCode theme.json</h2>
+          <p class="case-card__desc">
+            A dual-mode color theme for the OpenCode CLI &mdash; designed in Figma,
+            shipped as production JSON.
+          </p>
+          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
+
+          <!-- Cover: a small live render of the theme rather than a screenshot -->
+          <div class="case-card__thumb">
+            <div class="term-mock" aria-hidden="true">
+              <div class="term-mock__bar">
+                <i></i><i></i><i></i>
+                <span>anna &mdash; opencode &mdash; 80&times;24</span>
+              </div>
+              <div class="term-mock__body">
+                <p><span class="t-mut">&gt;</span> Explain the REST API overview</p>
+                <p class="t-head">## Methods</p>
+                <p><span class="t-key">def</span> <span class="t-fn">fetch</span>(<span class="t-str">url</span>):</p>
+                <p>&nbsp;&nbsp;<span class="t-key">return</span> requests.<span class="t-fn">get</span>(url)</p>
+                <p><span class="t-mut"># 44 color tokens, 2 modes</span></p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="case-card case-card--butter" href="work/protected.html?to=case-study-4.html">
+          <span class="badge-wip">Placeholder</span>
+          <h2 class="case-card__title">Case Study Four</h2>
+          <p class="case-card__desc">A one-line description of the product and the problem it solves.</p>
+          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
+          <div class="case-card__thumb"><div class="thumb-ph">Cover image</div></div>
+        </a>
+
+        <a class="case-card case-card--sky hidden" href="work/protected.html?to=case-study-5.html">
+          <span class="badge-wip">Placeholder</span>
+          <h2 class="case-card__title">Case Study Five</h2>
+          <p class="case-card__desc">A one-line description of the product and the problem it solves.</p>
+          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
+          <div class="case-card__thumb"><div class="thumb-ph">Cover image</div></div>
+        </a>
+
+        <a class="case-card case-card--mint hidden" href="work/protected.html?to=case-study-6.html">
+          <span class="badge-wip">Placeholder</span>
+          <h2 class="case-card__title">Case Study Six</h2>
+          <p class="case-card__desc">A one-line description of the product and the problem it solves.</p>
+          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
+          <div class="case-card__thumb"><div class="thumb-ph">Cover image</div></div>
+        </a>
+
+      </div>
+    </section>
+
+    <hr class="section-rule">
+
+    <!-- ===================================================== MENTIONS -->
+  </main>
+
+  <!-- ======================================================== FOOTER -->
+  <footer>
+    <section class="connect" aria-labelledby="connect-title">
+      <div class="wrap">
+        <h2 class="connect__title" id="connect-title">Let&rsquo;s Connect</h2>
+        <p class="connect__text">Feel free to reach out for collaborations or just a friendly hello &#128522;</p>
+        <a class="connect__email" href="mailto:annagorobchyk@gmail.com">annagorobchyk@gmail.com</a>
+
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">
+            Linkedin
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">
+            Medium
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="mailto:annagorobchyk@gmail.com">
+            Email
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&ouid=112848843176912504899&rtpof=true&sd=true" target="_blank" rel="noopener">
+            CV
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="colophon">&copy; 2026 Anna Horobchuk</div>
+  </footer>
+
+  <button class="to-top" type="button">
+    <span class="sr-only">Back to top</span>
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+      <path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

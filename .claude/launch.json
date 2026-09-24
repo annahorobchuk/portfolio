@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-static",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": [".claude/dev-server.rb"],
+      "port": 8000
+    }
+  ]
+}

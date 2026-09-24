@@ -1,0 +1,105 @@
+{
+  "_source": "Figma file 'CLI Library (Copy)', key 9u5h5F7q5Mk6VoWXRc7klO. Structural inventory of the 3 deliverable pages, visible layers only, extracted 2026-07-26.",
+  "file": {
+    "name": "CLI Library (Copy)",
+    "key": "9u5h5F7q5Mk6VoWXRc7klO",
+    "url": "https://www.figma.com/design/9u5h5F7q5Mk6VoWXRc7klO/CLI-Library--Copy-"
+  },
+  "pages": [
+    {
+      "name": "💡⚙️  Theme.json   I   OpenCode theme",
+      "nodeId": "2005:489",
+      "role": "Main representation of the developed theme: screenshots, Figma prototype (CLI design component), theme structure. Deliverable = exact code in 'Raw JSON' frame (layer 'Code snippet').",
+      "hiddenLayers": 0,
+      "sections": [
+        {
+          "name": "Theme 1   -  FINAL (Work in progress)",
+          "nodeId": "2116:1727",
+          "children": [
+            {
+              "name": "Screenshots",
+              "nodeId": "2180:938",
+              "content": "7 raster screenshots of the theme running in a real terminal (image 49, 50, 51, 52, 54, 55, 56). Raster only, no text layers."
+            },
+            {
+              "name": "Theme structure",
+              "nodeId": "2116:1728",
+              "children": [
+                { "name": "Figma variables — Color Preview", "nodeId": "2116:814", "content": "Palette title + dark grid (24 swatches) + light grid (26 swatches, 6 empty placeholders). See color-palette.json" },
+                { "name": "Raw JSON", "nodeId": "2116:786", "content": "THE code-ready deliverable. Layer 'Code snippet' (2116:785, 1348 chars, 48 lines) + 'Code line numbers' (2116:787). Exact code in theme.json. Note: line-number gutter shows 46 numbers vs 48 code lines.", "deliverable": true },
+                { "name": "Code line numbers", "nodeId": "2116:797", "content": "standalone line-number column, 46 lines" },
+                { "name": "Change Logs", "nodeId": "2177:478", "content": "3 rounds of design changes. See change-log.json" },
+                { "name": "Test colors here", "nodeId": "2133:2995", "content": "scratch frame with dummy text ('cfsdcfsdvsnj' x6) used for color testing; no meaningful content" },
+                { "name": "Group 1", "nodeId": "2232:1032", "content": "annotation: teal header text lightness +15%. See change-log.json designerAnnotations" },
+                { "name": "Group 2", "nodeId": "2232:1037", "content": "annotation: table highlight colors desaturated orange. See change-log.json designerAnnotations" }
+              ]
+            },
+            {
+              "name": "Figma prototype - CLI design",
+              "nodeId": "2180:949",
+              "children": [
+                { "name": "Opencode CLI — With sidebar", "nodeId": "2154:1360", "content": "Full CLI mock: Content Area + Sidebar composed inside 'Opencode CLI — Text Layers'. Demo conversation in cli-demo-content.md" },
+                { "name": "Content Area (instance)", "nodeId": "2180:841", "content": "standalone instance of Content Area component" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Theme 2   -  Marketing brand guidelines - aligned",
+          "nodeId": "2079:517",
+          "content": "Earlier/alternative exploration aligned to marketing brand guidelines. Text label 'Marketing brand guidelines - aligned' + 5 raster screenshots (image 1, 2, 3, 4, 7). Raster only."
+        },
+        { "name": "image 58 (2232:1046) and image 57 (2232:1043)", "content": "two loose raster images at page level (OpenCode logo renders)" }
+      ]
+    },
+    {
+      "name": "⚙️  Components",
+      "nodeId": "2154:648",
+      "hiddenLayers": 0,
+      "components": [
+        { "name": "status-left", "nodeId": "2154:1294", "structure": "texts: ■ / Build / · / Big Pickle / · / 15.0s" },
+        { "name": "Input (CLI)", "nodeId": "2154:416", "structure": "Input > Frame 11 + Status Bar (status-left instance); input-copy-line > purple border + gray line" },
+        { "name": "Query Bar", "nodeId": "2154:1244", "structure": "Input (CLI) instance with status-left text overridden to the user query string" },
+        { "name": "Thought Row", "nodeId": "2154:1178", "structure": "single text '+ Thought:263ms'" },
+        { "name": "Sidebar", "nodeId": "2154:1408", "structure": "Top - Session info (Greeting, Context: 8,468 tokens / 4$ used / $0.00 spent, LSP: LSP are disabled); Footer - Opencode info (Gettings started card, /〜, OpenCode 1.16.2)" },
+        { "name": "Content Area", "nodeId": "2180:644", "structure": "full markdown-rendered demo conversation; exact content in cli-demo-content.md" },
+        { "name": "Code block", "nodeId": "2199:914", "structure": "Code snippet wrapper x2: line numbers 1-18 + '# Wrote api_fetcher.py' header + python code (see cli-demo-content.md)" }
+      ],
+      "looseContent": [
+        { "nodeId": "2199:899", "type": "TEXT", "content": "loose copy of the api_fetcher.py python snippet (same text as Code block component)" }
+      ]
+    },
+    {
+      "name": "z - Internal utilities",
+      "nodeId": "2116:1729",
+      "role": "Internal-only helpers for this file. Not included in publishing. Deliberately captured at low detail per Anna's instruction.",
+      "hiddenLayers": 9,
+      "hiddenLayersNote": "All 9 hidden layers are inside internal ds-* utility variants (badge instances, pointer frame, area borders, one vector). None are part of theme content and none were captured into this database.",
+      "frame": { "name": "CLI design system utilities", "nodeId": "2116:2389" },
+      "componentSets": [
+        { "name": "ds-title", "variants": ["type=01-page header", "type=02-subsection", "type=03-description", "type=04-body"] },
+        { "name": "ds-pointer", "variants": ["pointer=left", "pointer=right", "pointer=up", "pointer=down", "pointer=none"] },
+        { "name": "ds-label", "variants": ["arrow direction=left", "arrow direction=no-arrow", "arrow direction=right", "arrow direction=up", "arrow direction=down"] },
+        { "name": "ds-area", "variants": ["direction=full", "direction=horizontal", "direction=vertical"] },
+        { "name": "ds-line", "variants": ["direction=vertical", "direction=horizontal"] },
+        { "name": "logo-mark", "variants": ["Brand=DataRobot", "Brand=Shadcn", "Brand=Combined"] },
+        { "name": "Logo", "variants": ["Brand=Shadcn-Datarobot", "Brand=DataRobot"] },
+        { "name": "theme switcher", "variants": ["theme=light", "theme=dark"] },
+        { "name": "00_cursor", "variants": ["type=hand (pointing)", "type=opened hand", "type=closed hand", "type=default", "type=not allowed", "type=help", "type=move", "type=zoom in", "type=zoom out"] },
+        { "name": "theme", "variants": ["theme=dark", "theme=light"], "note": "powers dark/light text label in swatch rows" },
+        { "name": "swatch", "variants": ["Color pair exist=true", "Color pair exist=false"], "note": "palette row component used in Color Preview" }
+      ]
+    }
+  ],
+  "_themeJsonNote": "data/theme.json in this folder now holds the SHIPPED version (sent to Carson Gee via Slack DM on 2026-06-11 for the PR to datarobot-oss/datarobot-agent-skills). It supersedes the Figma 'Raw JSON' frame, which lags behind: the shipped file fixes darkCyan (#909BF5), completes the darkPink->darkTurquoise and lightPink->lightTurquoise renames, updates darkSyntaxYellow (#CEB31C), and adds the full 'theme' role-mapping block (52 roles). The inconsistencies below describe the FIGMA CANVAS state, kept for case-study accuracy.",
+  "knownInconsistencies": [
+    "theme.json defs vs change log: defs still contain darkCyan #30AAB2 (log Round 2: changed to #909BF5; the Figma VARIABLE '8 darkCyan' already resolves to purple-50 #909BF5).",
+    "theme.json defs still contain darkPink #E98AD6 and lightPink #D547B8 although the log says they were renamed to darkTurquoise / lightTurquoise; defs DO contain darkTeal #61BFC5 and lightTeal #00949F which carry the new turquoise values.",
+    "theme.json darkSyntaxYellow is #E5D74C while palette preview, change log and the Figma variable say #CEB31C.",
+    "theme.json darkSyntaxOrange is #EDA769 (matches Round 3 final).",
+    "theme.json has no darkSyntaxOrangeMuted (consistent with 'removed' in Round 3), but the palette preview still shows row 24 SyntaxOrangeMuted with a stale hex #42C0FC (variable resolves to #EDA769).",
+    "theme.json contains only $schema + defs; there is no 'theme' role-mapping block (primary/text/syntax etc.), so the file defines colors but does not yet assign them to OpenCode UI roles.",
+    "Palette preview line-number gutter (46) vs code snippet lines (48).",
+    "lightMagenta is lowercase '#b3003f' in the JSON (only non-uppercase hex)."
+  ]
+}

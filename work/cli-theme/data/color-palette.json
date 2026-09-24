@@ -1,0 +1,65 @@
+{
+  "_source": "Frame 'Figma variables — Color Preview' (node 2116:814), page 'Theme.json I OpenCode theme'. Exact visible text, extracted 2026-07-26.",
+  "title": "my-theme.json — Color Palette",
+  "dark": {
+    "header": "COLOR PALETTE — DARK",
+    "gridNodeId": "2116:817",
+    "rows": [
+      { "n": 1, "name": "darkBg", "hex": "#22272B" },
+      { "n": 2, "name": "darkPanel", "hex": "#181D21" },
+      { "n": 3, "name": "darkElement", "hex": "#3E454D" },
+      { "n": 4, "name": "darkFg", "hex": "#E8EBED" },
+      { "n": 5, "name": "darkMuted", "hex": "#8F97A1" },
+      { "n": 6, "name": "darkBorder", "hex": "#2A3036" },
+      { "n": 7, "name": "darkBorderActive", "hex": "#3E454D" },
+      { "n": 8, "name": "darkCyan", "hex": "#30AAB2" },
+      { "n": 9, "name": "darkAccent", "hex": "#909BF5" },
+      { "n": 10, "name": "darkBlue", "hex": "#87ADF8" },
+      { "n": 11, "name": "darkGreen", "hex": "#2BC46F" },
+      { "n": 12, "name": "darkGreenBright", "hex": "#56DF8A" },
+      { "n": 13, "name": "darkRed", "hex": "#ED7171" },
+      { "n": 14, "name": "darkRedBright", "hex": "#F79797" },
+      { "n": 15, "name": "darkYellow", "hex": "#E5D74C" },
+      { "n": 16, "name": "darkOrange", "hex": "#E98C3B" },
+      { "n": 17, "name": "darkTurquoise", "hex": "#61BFC5" },
+      { "n": 18, "name": "darkPurple", "hex": "#909BF5" },
+      { "n": 19, "name": "darkTeal", "hex": "#61BFC5" },
+      { "n": 20, "name": "darkSyntaxYellow", "hex": "#CEB31C" },
+      { "n": 21, "name": "darkSyntaxOrange", "hex": "#EDA769" },
+      { "n": 22, "name": "darkSyntaxGreen", "hex": "#56DF8A" },
+      { "n": 23, "name": "darkSyntaxBlue", "hex": "#42C0FC" },
+      { "n": 24, "name": "darkSyntaxOrangeMuted", "hex": "#42C0FC", "note": "displayed hex equals SyntaxBlue; variable actually resolves to #EDA769 (see figma-variables.json). Likely stale text override in the preview." }
+    ]
+  },
+  "light": {
+    "header": "COLOR PALETTE — LIGHT",
+    "gridNodeId": "2116:1287",
+    "gridLayerName": "Dark Grid (layer name reused from dark grid copy)",
+    "rows": [
+      { "n": 1, "name": "lightBg", "hex": "#FFFFFF" },
+      { "n": 2, "name": "lightPanel", "hex": "#F7F9FD" },
+      { "n": 3, "name": "lightElement", "hex": "#C4CEDE" },
+      { "n": 4, "name": "lightFg", "hex": "#1D1E21" },
+      { "n": 5, "name": "lightMuted", "hex": "#6B7380" },
+      { "n": 6, "name": "lightBorder", "hex": "#DEE3ED" },
+      { "n": 7, "name": "lightBorderActive", "hex": "#C4CEDE" },
+      { "n": 9, "name": "lightBlue (= darkAccent)", "hex": "#5C41FF" },
+      { "n": 10, "name": "lightBlueDark (=darkBlue)", "hex": "#407CF3" },
+      { "n": 11, "name": "lightGreen", "hex": "#016B3E" },
+      { "n": 12, "name": "lightGreenBright", "hex": "#008A48" },
+      { "n": 13, "name": "lightRed", "hex": "#C24141" },
+      { "n": 14, "name": "lightRedBright", "hex": "#E85656" },
+      { "n": 16, "name": "lightYellow", "hex": "#966900" },
+      { "n": 15, "name": "lightOrange", "hex": "#E3710D" },
+      { "n": 19, "name": "lightTurquoise", "hex": "#00949F" },
+      { "n": 17, "name": "lightPurple", "hex": "#7770F9" },
+      { "n": 8, "name": "lightTeal", "hex": "#00949F" },
+      { "n": 18, "name": "lightPurpleDark (=darkAccent)", "hex": "#5C41FF" },
+      { "n": 20, "name": "lightMagenta (=darkPink)", "hex": "#D547B8" }
+    ],
+    "notes": [
+      "Row order and numbering preserved exactly as in Figma (16 Yellow appears before 15 Orange; 8 Teal appears near the end).",
+      "The light grid contains 26 swatch instances; 6 of them (positions 8, 20-24 in the stack) carry no text content at all. They are swatch component instances with the text slots emptied, acting as visual placeholders where the dark palette has extra syntax rows. They are NOT hidden layers."
+    ]
+  }
+}

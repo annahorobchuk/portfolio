@@ -1,0 +1,52 @@
+{
+  "_source": "Figma local variables, file 9u5h5F7q5Mk6VoWXRc7klO (CLI Library (Copy)), extracted 2026-07-26 via Figma MCP Plugin API",
+  "_note": "Values that alias library variables are resolved through the DataRobot design system library. 'via' shows the library token the variable points to. All values verified exact, not approximated.",
+  "collections": [
+    {
+      "name": "Variable collection",
+      "id": "VariableCollectionId:15:44",
+      "modes": ["dark", "light"],
+      "variables": [
+        { "name": "1 darkBg", "type": "COLOR", "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR", "EFFECT_COLOR"], "dark": { "via": "color/midnight-gray/midnight-gray-70", "hex": "#22272B" }, "light": { "via": "color/alpine-light/alpine-light-100", "hex": "#FFFFFF" } },
+        { "name": "2 darkPanel", "type": "COLOR", "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR", "EFFECT_COLOR"], "dark": { "via": "surface/page-background-90 -> color/midnight-gray/midnight-gray-90", "hex": "#181D21" }, "light": { "via": "color/alpine-light/alpine-light-90", "hex": "#F7F9FD" } },
+        { "name": "3 darkElement", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/midnight-gray/midnight-gray-50", "hex": "#3E454D" }, "light": { "via": "color/alpine-light/alpine-light-50", "hex": "#C4CEDE" } },
+        { "name": "4 darkFg", "type": "COLOR", "scopes": ["TEXT_FILL", "STROKE_COLOR"], "dark": { "via": "color/midnight-gray/midnight-gray-10", "hex": "#E8EBED" }, "light": { "via": "color/alpine-light/alpine-light-10", "hex": "#1D1E21" } },
+        { "name": "5 darkMuted", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/midnight-gray/midnight-gray-30", "hex": "#8F97A1" }, "light": { "via": "color/alpine-light/alpine-light-30", "hex": "#6B7380" } },
+        { "name": "6 darkBorder", "type": "COLOR", "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR", "EFFECT_COLOR"], "dark": { "via": "color/midnight-gray/midnight-gray-60", "hex": "#2A3036" }, "light": { "via": "color/alpine-light/alpine-light-60", "hex": "#DEE3ED" } },
+        { "name": "7 darkBorderActive", "type": "COLOR", "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR", "EFFECT_COLOR"], "dark": { "via": "color/midnight-gray/midnight-gray-50", "hex": "#3E454D" }, "light": { "via": "color/alpine-light/alpine-light-50", "hex": "#C4CEDE" } },
+        { "name": "8 darkCyan", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/purple/purple-50", "hex": "#909BF5" }, "light": { "via": null, "hex": "#FFFFFF", "note": "raw value, not aliased; likely placeholder" } },
+        { "name": "9 darkAccent", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/purple/purple-50", "hex": "#909BF5" }, "light": { "via": "color/purple/purple-70", "hex": "#5C41FF" } },
+        { "name": "10 darkBlue", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/blue/blue-40", "hex": "#87ADF8" }, "light": { "via": "color/additional data viz/blue/blue-60", "hex": "#407CF3" } },
+        { "name": "11 darkGreen", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/green/green-50", "hex": "#2BC46F" }, "light": { "via": "color/supportive/green/green-80", "hex": "#016B3E" } },
+        { "name": "12 darkGreenBright", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/green/green-40", "hex": "#56DF8A" }, "light": { "via": "color/supportive/green/green-70", "hex": "#008A48" } },
+        { "name": "13 darkRed", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/red/red-50", "hex": "#ED7171" }, "light": { "via": "color/supportive/red/red-70", "hex": "#C24141" } },
+        { "name": "14 darkRedBright", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/red/red-40", "hex": "#F79797" }, "light": { "via": "color/supportive/red/red-60", "hex": "#E85656" } },
+        { "name": "15 darkYellow", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/yellow/yellow-40", "hex": "#E5D74C" }, "light": { "via": "color/supportive/yellow/yellow-70", "hex": "#966900" } },
+        { "name": "16 darkOrange", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/orange/orange-50", "hex": "#E98C3B" }, "light": { "via": "color/additional data viz/orange/orange-60", "hex": "#E3710D" } },
+        { "name": "17 darkTurquoise", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/turquoise/turquoise-40", "hex": "#61BFC5" }, "light": { "via": "color/additional data viz/turquoise/turquoise-60", "hex": "#00949F" } },
+        { "name": "18 darkPurple", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/purple/purple-50", "hex": "#909BF5" }, "light": { "via": "color/purple/purple-60", "hex": "#7770F9" } },
+        { "name": "19 darkTeal", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/turquoise/turquoise-40", "hex": "#61BFC5" }, "light": { "via": "color/additional data viz/turquoise/turquoise-60", "hex": "#00949F" } },
+        { "name": "20 darkSyntaxYellow", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/yellow/yellow-50", "hex": "#CEB31C" }, "light": { "via": "color/supportive/yellow/yellow-70", "hex": "#966900" } },
+        { "name": "21 darkSyntaxOrange", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/orange/orange-40", "hex": "#EDA769" }, "light": { "via": "color/additional data viz/orange/orange-60", "hex": "#E3710D" } },
+        { "name": "22 darkSyntaxGreen", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/supportive/green/green-40", "hex": "#56DF8A" }, "light": { "via": "color/supportive/green/green-70", "hex": "#008A48" } },
+        { "name": "23 darkSyntaxBlue", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/azure/azure-40", "hex": "#42C0FC" }, "light": { "via": "color/additional data viz/azure/azure-60", "hex": "#0B83DC" } },
+        { "name": "24 darkSyntaxOrangeMuted", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": { "via": "color/additional data viz/orange/orange-40", "hex": "#EDA769" }, "light": { "via": null, "hex": "#FFFFFF", "note": "raw value, not aliased; likely placeholder" } },
+        { "name": "theme", "type": "STRING", "scopes": ["ALL_SCOPES"], "dark": "dark", "light": "dark" },
+        { "name": "String", "type": "STRING", "scopes": ["ALL_SCOPES"], "dark": "Bg", "light": "Bg" },
+        { "name": "ds-internal", "type": "COLOR", "scopes": ["ALL_SCOPES"], "dark": "#FF2FF8", "light": "#FF2FF8", "note": "internal design-system utility color, not part of theme" },
+        { "name": "radii", "type": "FLOAT", "scopes": ["CORNER_RADIUS"], "dark": 6, "light": 6 }
+      ]
+    },
+    {
+      "name": "Typography",
+      "id": "VariableCollectionId:2152:406",
+      "modes": ["Font"],
+      "variables": [
+        { "name": "font/family/JetBrains Mono", "type": "STRING", "value": "JetBrains Mono" },
+        { "name": "font/weight/Regular", "type": "STRING", "value": "Regular" },
+        { "name": "font/weight/Medium", "type": "STRING", "value": "Medium" },
+        { "name": "font/size/size", "type": "STRING", "value": "14" }
+      ]
+    }
+  ]
+}
