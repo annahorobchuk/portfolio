@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Case Study Four — Anna Horobchuk</title>
-  <meta name="description" content="Placeholder case study.">
+  <title>Built in Notebooks — Anna Horobchuk</title>
+  <meta name="description" content="DataRobot Notebooks: designing a fully hosted, Jupyter-compatible environment for rapid prototyping and exploratory analysis.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,49 +38,48 @@
       <ol>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../index.html#work">Work</a></li>
-        <li aria-current="page">Case Study Four</li>
+        <li aria-current="page">Built in Notebooks</li>
       </ol>
     </nav>
 
     <section class="cs-hero">
       <div class="wrap">
         <p class="cs-eyebrow">Case study</p>
-        <h1 class="cs-title">Case Study Four</h1>
+        <h1 class="cs-title">Built in Notebooks</h1>
         <p class="prose" style="color: var(--ink-muted);">
-          A one-line description of the product and the problem it solves.
+          DataRobot Notebooks: designing a fully hosted, Jupyter-compatible environment for rapid prototyping and exploratory analysis.
         </p>
-        <div class="cs-banner">Hero image</div>
+        <div class="cs-banner"><img src="../assets/img/notebooks/notebooks-session environment.png" alt="Notebooks session environment interface" style="width: 100%; height: auto; object-fit: cover;"></div>
       </div>
     </section>
 
     <section class="wrap">
       <dl class="cs-facts">
-        <div><dt>Role</dt><dd>[Your role]</dd></div>
-        <div><dt>Team</dt><dd>[Team makeup]</dd></div>
-        <div><dt>Timeline</dt><dd>[Dates]</dd></div>
-        <div><dt>Platform</dt><dd>Web</dd></div>
+        <div><dt>Role</dt><dd>Product designer</dd></div>
+        <div><dt>Team</dt><dd>Design, Engineering, Product</dd></div>
+        <div><dt>Timeline</dt><dd>1 year+</dd></div>
       </dl>
-
-      <div class="notice">
-        <strong>Placeholder.</strong> This case study is not written yet &mdash; the
-        section scaffolding below is here so the layout and navigation can be reviewed.
-      </div>
 
       <div class="prose" style="padding-bottom: 60px;">
         <h2>Overview</h2>
-        <p>[Placeholder] What the product is, who it serves, and why this project happened.</p>
+        <p>To kick off the design process, I researched how notebooks were actually being used across the DataRobot platform. DataRobot Notebooks is a fully hosted, Jupyter-compatible environment used for rapid prototyping, model evaluation, and exploratory analysis - but as adoption grew, usage patterns revealed real friction: notebooks were increasingly used as the code-first complement to automated workflows, with users switching between no-code pipelines and custom code to fill gaps the automation couldn't handle. Identifying this as the most frequent usage pattern shaped the direction for the rest of the design.</p>
 
-        <h2>The problem</h2>
-        <p>[Placeholder] The user and business problem, stated plainly. Add the evidence that made it real.</p>
+        <h2>Interface Elements & Features</h2>
 
-        <h2>Research</h2>
-        <p>[Placeholder] What you did to understand the problem and what you learned.</p>
-
-        <h2>Design</h2>
-        <p>[Placeholder] Key decisions, explorations you rejected, and the reasoning behind the direction you shipped.</p>
-
-        <h2>Outcome</h2>
-        <p>[Placeholder] What shipped, what changed, and what you would do differently.</p>
+        <div class="image-slider">
+          <div class="slider-main">
+            <img id="interface-main-image" src="../assets/img/notebooks/notebooks-session environment.png" alt="Session environment">
+            <button class="slider-arrow prev" onclick="interfaceSlider.prev()" aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="slider-arrow next" onclick="interfaceSlider.next()" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+          <div class="slider-thumbnails" id="interface-thumbnails">
+            <img class="thumbnail active" src="../assets/img/notebooks/notebooks-session environment.png" alt="Session environment" onclick="interfaceSlider.showImage(0)" title="Session environment and main interface">
+            <img class="thumbnail" src="../assets/img/notebooks/notebooks-side panels.png" alt="Side panels" onclick="interfaceSlider.showImage(1)" title="Side panels layout">
+            <img class="thumbnail" src="../assets/img/notebooks/notebooks-files.png" alt="Files panel" onclick="interfaceSlider.showImage(2)" title="Files and project structure">
+            <img class="thumbnail" src="../assets/img/notebooks/notebooks-env vars.png" alt="Environment variables" onclick="interfaceSlider.showImage(3)" title="Environment variables configuration">
+            <img class="thumbnail" src="../assets/img/notebooks/notebooks-light-theme.png" alt="Light theme variant" onclick="interfaceSlider.showImage(4)" title="Light theme variant">
+          </div>
+        </div>
 
         <p style="margin-top: 40px;">
           <a class="btn-text" href="../index.html"><span aria-hidden="true">&larr;</span> Back to all work</a>
@@ -124,5 +123,43 @@
   </button>
 
   <script src="../assets/js/main.js"></script>
+
+  <script>
+    function createSlider(mainImageId, thumbnailsContainerId) {
+      return {
+        currentIndex: 0,
+        images: Array.from(document.querySelectorAll(`#${thumbnailsContainerId} img`)),
+        mainImage: document.getElementById(mainImageId),
+
+        showImage(index) {
+          if (index < 0 || index >= this.images.length) return;
+
+          this.currentIndex = index;
+          const img = this.images[index];
+
+          this.mainImage.src = img.src;
+          this.mainImage.alt = img.alt;
+
+          this.images.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === index);
+          });
+
+          img.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        },
+
+        next() {
+          const nextIndex = (this.currentIndex + 1) % this.images.length;
+          this.showImage(nextIndex);
+        },
+
+        prev() {
+          const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+          this.showImage(prevIndex);
+        }
+      };
+    }
+
+    const interfaceSlider = createSlider('interface-main-image', 'interface-thumbnails');
+  </script>
 </body>
 </html>

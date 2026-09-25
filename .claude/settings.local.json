@@ -16,7 +16,14 @@
       "Bash(cp /Users/ana/Downloads/1789741050063.jpeg /Users/ana/Documents/Portfolio/portfolio-website/assets/img/about.jpg)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(ls -la \"/Users/ana/Documents/Portfolio/notebooks use case\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/notebooks use case\"/*.png \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks/\")",
+      "Bash(mkdir -p \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks\" && cp \"/Users/ana/Documents/Portfolio/notebooks use case\"/*.png \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks/\")"
     ]
   }
 }

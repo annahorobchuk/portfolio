@@ -86,6 +86,15 @@
           </button>
         </div>
 
+        <h2 style="margin-top: 60px;">Patterns</h2>
+
+        <div id="video-container" class="video-preview-container">
+          <button id="patterns-video-btn" class="video-preview-btn" title="Play video">
+            <svg class="video-play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            <span class="sr-only">Play video</span>
+          </button>
+        </div>
+
         <p style="margin-top: 40px;">
           <a class="btn-text" href="../index.html"><span aria-hidden="true">&larr;</span> Back to all work</a>
         </p>
@@ -106,6 +115,7 @@
           </div>
         </div>
       </div>
+
     </section>
   </main>
 
@@ -217,6 +227,20 @@
           }
         }
       }
+    });
+
+    // Video player inline
+    const videoContainer = document.getElementById('video-container');
+    const videoPreviewBtn = document.getElementById('patterns-video-btn');
+
+    videoPreviewBtn.addEventListener('click', () => {
+      // Replace the preview button with video player
+      videoContainer.innerHTML = `
+        <video style="width: 100%; height: 100%; display: block; border-radius: 12px; object-fit: contain; background: #000;" controls autoplay>
+          <source src="../assets/video/editable-table.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      `;
     });
   </script>
 </body>
