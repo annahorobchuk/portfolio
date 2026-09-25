@@ -23,7 +23,9 @@
       "Bash(git push *)",
       "Bash(ls -la \"/Users/ana/Documents/Portfolio/notebooks use case\")",
       "Bash(cp \"/Users/ana/Documents/Portfolio/notebooks use case\"/*.png \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks/\")",
-      "Bash(mkdir -p \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks\" && cp \"/Users/ana/Documents/Portfolio/notebooks use case\"/*.png \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks/\")"
+      "Bash(mkdir -p \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks\" && cp \"/Users/ana/Documents/Portfolio/notebooks use case\"/*.png \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/notebooks/\")",
+      "Bash(ls -la \"/Users/ana/Documents/Portfolio/Illustrations\")",
+      "Bash(cp \"/Users/ana/Documents/Portfolio/Illustrations/Illustration\"*.png \"/Users/ana/Documents/Portfolio/portfolio-website/assets/img/\")"
     ]
   }
 }
