@@ -12,6 +12,18 @@
 </head>
 <body>
 
+  <script>
+    // Redirect to password gate if accessed directly
+    if (!sessionStorage.getItem('case-study-unlocked')) {
+      var referrer = document.referrer;
+      if (!referrer.includes('protected.html')) {
+        window.location.href = 'protected.html?to=' + encodeURIComponent(window.location.pathname.split('/').pop());
+      }
+    }
+    // Mark as unlocked for this session
+    sessionStorage.setItem('case-study-unlocked', 'true');
+  </script>
+
   <header class="site-nav">
     <div class="wrap site-nav__inner">
       <span class="status-badge">
