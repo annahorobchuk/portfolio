@@ -29,7 +29,7 @@
 
   /* Layout */
   --page-max: 1400px;
-  --gutter: 28px;
+  --gutter: clamp(28px, 6vw, 96px);
   --radius: 14px;
 }
 
