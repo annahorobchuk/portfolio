@@ -1167,3 +1167,304 @@ body.gate-page .site-nav { background: rgba(251, 250, 249, 0.9); }
   html { scroll-behavior: auto; }
   * { animation: none !important; transition-duration: 0.01ms !important; }
 }
+
+/* -------------------------------------------------------- Theme switch ----- */
+
+/* Page links sit next to the status badge; the theme switch takes the far right. */
+.site-nav__inner > nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-left: clamp(16px, 3vw, 40px);
+}
+
+.theme-switch { display: flex; align-items: center; gap: 10px; }
+
+.theme-switch__pill {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: #f4f1fb;
+  border: 1px solid #e4dff0;
+}
+
+.theme-switch__opt {
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a.theme-switch__opt:hover,
+a.theme-switch__opt:focus-visible { color: var(--accent); background: #fff; }
+
+.theme-switch__opt[aria-current] { background: var(--accent); color: #fff; }
+
+@media (max-width: 640px) {
+  .site-nav__inner { flex-wrap: wrap; }
+  .site-nav__inner > nav { order: 3; width: 100%; margin-left: 0; justify-content: flex-end; }
+}
+
+/* ------------------------------------------- Neon theme: case studies ----- */
+/* Case-study pages keep their layout; the neon theme only swaps to a dark
+   background with light text. */
+
+html.theme-neon {
+  --bg: #06050a;
+  --bg-soft: #0d0b12;
+  --ink: #e8dfe9;
+  --ink-muted: #bfb0c4;
+  --ink-faint: #9c8aa6;
+  --rule: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
+  background: var(--bg);
+}
+
+.theme-neon .site-nav { background: rgba(6, 5, 10, 0.85); }
+
+.theme-neon .status-badge { box-shadow: 0 0 0 1px var(--rule); }
+
+.theme-neon .cs-banner,
+.theme-neon .slider-main { background: var(--bg-soft); }
+
+.theme-neon .slider-thumbnails::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); }
+
+.theme-neon .to-top {
+  background: var(--bg-soft);
+  box-shadow: 0 0 0 1px var(--rule), 0 8px 22px -10px rgba(0, 0, 0, 0.9);
+}
+
+.theme-neon .theme-switch__pill {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.theme-neon a.theme-switch__opt:hover,
+.theme-neon a.theme-switch__opt:focus-visible { background: rgba(255, 255, 255, 0.1); }
+
+@media (max-width: 640px) {
+  .theme-neon .nav-links { background: var(--bg-soft); border-color: var(--rule); }
+}
+
+/* ------------------------------------- Theme switch: Try me + preview ----- */
+/* Classic only. A handwritten "Try me" tag and a shimmer on the neon option
+   invite a first try; hovering or focusing the switch opens a small preview
+   where the classic page wipes into the neon one. */
+
+.theme-switch { position: relative; }
+
+.theme-try { display: none; }
+
+.show-try .theme-try {
+  position: absolute;
+  right: 18px;
+  top: calc(100% + 2px);
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  color: var(--accent);
+  pointer-events: none;
+  animation: ts-try-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both,
+             ts-bob 2.4s ease-in-out 1.4s infinite;
+}
+
+.theme-try svg { flex: none; }
+
+.theme-try span {
+  margin-top: 16px;
+  font-family: "Caveat", cursive;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transform: rotate(-6deg);
+}
+
+.show-try a.theme-switch__opt {
+  position: relative;
+  overflow: hidden;
+  animation: ts-pulse 2.6s ease-out infinite;
+}
+
+.show-try a.theme-switch__opt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(121, 77, 232, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  pointer-events: none;
+  animation: ts-shimmer 3.6s ease-in-out 1s infinite;
+}
+
+@keyframes ts-try-in { from { opacity: 0; transform: translateY(10px) scale(0.9); } to { opacity: 1; transform: none; } }
+@keyframes ts-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
+@keyframes ts-shimmer { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+@keyframes ts-pulse { 0% { box-shadow: 0 0 0 0 rgba(121, 77, 232, 0.45); } 70%, 100% { box-shadow: 0 0 0 9px rgba(121, 77, 232, 0); } }
+
+/* Preview popover */
+.theme-preview {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 14px);
+  z-index: 60;
+  width: 340px;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e4dff0;
+  box-shadow: 0 26px 50px -18px rgba(43, 43, 43, 0.38);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--ink-muted);
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.97);
+  transform-origin: 80% 0;
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.25s;
+}
+
+/* Hover bridge across the gap, so moving down to the card keeps it open. */
+.theme-preview::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 16px;
+}
+
+/* Caret pointing at "The way I want it". */
+.theme-preview::after {
+  content: "";
+  position: absolute;
+  right: 58px;
+  top: -7px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  background: #fff;
+  border-left: 1px solid #e4dff0;
+  border-top: 1px solid #e4dff0;
+}
+
+@media (hover: hover) {
+  .theme-switch:hover .theme-preview,
+  .theme-switch:focus-within .theme-preview {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+  }
+  /* The tag steps aside while the preview is open. */
+  .show-try .theme-switch:hover .theme-try,
+  .show-try .theme-switch:focus-within .theme-try { opacity: 0; }
+}
+
+.theme-switch.is-closed .theme-preview {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.theme-preview__box {
+  position: relative;
+  display: block;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #06050a;
+}
+
+.theme-preview__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.theme-preview__scan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: #f8305c;
+  box-shadow: 0 0 12px #f8305c, 0 0 2px #fff;
+  opacity: 0;
+}
+
+/* Loop only while open, so the cycle starts from classic every time. */
+.theme-switch:hover .theme-preview__box,
+.theme-switch:focus-within .theme-preview__box { animation: ts-jitter 5s steps(1) infinite; }
+.theme-switch:hover .theme-preview__img--neon,
+.theme-switch:focus-within .theme-preview__img--neon { animation: ts-wipe 5s linear infinite; }
+.theme-switch:hover .theme-preview__scan,
+.theme-switch:focus-within .theme-preview__scan { animation: ts-scan 5s linear infinite; }
+
+/* The wipe starts the moment the preview opens: classic → neon (0–14%),
+   hold neon, neon wipes away (50–64%), hold classic, repeat. */
+@keyframes ts-wipe {
+  0% { clip-path: inset(0 100% 0 0); }
+  14%, 50% { clip-path: inset(0 0 0 0); }
+  64%, 100% { clip-path: inset(0 0 0 100%); }
+}
+@keyframes ts-scan {
+  0% { left: 0; opacity: 1; }
+  14% { left: 100%; opacity: 1; }
+  14.5%, 49.5% { left: 0; opacity: 0; }
+  50% { left: 0; opacity: 1; }
+  64% { left: 100%; opacity: 1; }
+  64.5%, 100% { left: 100%; opacity: 0; }
+}
+@keyframes ts-jitter {
+  0% { transform: none; }
+  3% { transform: translateX(-3px); }
+  5% { transform: translateX(2px); }
+  7%, 52% { transform: none; }
+  53% { transform: translateX(3px); }
+  55% { transform: translateX(-2px); }
+  57%, 100% { transform: none; }
+}
+
+.theme-preview__caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.theme-preview__caption b,
+.theme-preview__cta { color: var(--accent); font-weight: 500; }
+
+/* Neon case-study pages and small screens: no nudge, no preview. */
+.theme-neon .theme-try,
+.theme-neon .theme-preview { display: none; }
+
+@media (max-width: 640px) {
+  .show-try .theme-try,
+  .theme-preview { display: none; }
+}
+
+/* Reduced motion: the global rule stops the loops; show the neon still. */
+@media (prefers-reduced-motion: reduce) {
+  .theme-preview__img--neon { clip-path: none; }
+}

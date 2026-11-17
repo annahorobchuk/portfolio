@@ -77,3 +77,22 @@
     });
   }
 })();
+
+// --- Theme switch: "Try me" nudge ------------------------------------------
+// Always shows on the classic theme; Escape closes the preview until the
+// pointer leaves.
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  var sw = document.querySelector(".theme-switch");
+  if (!sw || root.classList.contains("theme-neon")) return;
+
+  root.classList.add("show-try");
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") sw.classList.add("is-closed");
+  });
+  sw.addEventListener("mouseleave", function () { sw.classList.remove("is-closed"); });
+  sw.addEventListener("focusout", function () { sw.classList.remove("is-closed"); });
+})();

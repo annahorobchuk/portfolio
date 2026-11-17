@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anna Horobchuk — Product Designer</title>
   <meta name="description" content="Anna Horobchuk is a product designer focused on user-centric, human experiences.">
+  <script>(function(){try{var q=new URLSearchParams(location.search);if(q.get("theme")==="classic"){localStorage.setItem("ah-theme","classic")}else if(localStorage.getItem("ah-theme")==="neon"){location.replace("neon/"+(location.pathname.split("/").pop()||"index.html")+location.hash)}}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
 </head>
 <body>
@@ -34,6 +35,27 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="theme-switch">
+          <div class="theme-switch__pill" role="group" aria-label="Theme">
+            <span class="theme-switch__opt" aria-current="true">Classic theme</span>
+            <a class="theme-switch__opt" href="neon/index.html" aria-describedby="theme-preview">The way I want it</a>
+          </div>
+          <span class="theme-try" aria-hidden="true">
+            <svg viewBox="0 0 40 34" width="40" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30 C 10 16, 22 8, 34 5"/><path d="M27 2 L35 5 L30 11"/></svg>
+            <span>Try me</span>
+          </span>
+          <a class="theme-preview" id="theme-preview" href="neon/index.html" tabindex="-1" aria-label="Preview of the theme The way I want it">
+            <span class="theme-preview__box" aria-hidden="true">
+              <img class="theme-preview__img" src="assets/img/theme-preview-classic.webp" alt="" width="640" height="400" decoding="async">
+              <img class="theme-preview__img theme-preview__img--neon" src="assets/img/theme-preview-neon.webp" alt="" width="640" height="400" decoding="async">
+              <span class="theme-preview__scan"></span>
+            </span>
+            <span class="theme-preview__caption" aria-hidden="true">
+              <span>Classic theme <b>&rarr;</b> The way I want it</span>
+              <span class="theme-preview__cta">Click to switch</span>
+            </span>
+          </a>
+        </div>
       </nav>
     </div>
   </header>
@@ -177,6 +199,6 @@
     </svg>
   </button>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
