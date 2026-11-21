@@ -4,34 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anna Horobchuk — Product Designer</title>
-  <meta name="description" content="Anna Horobchuk is a product designer focused on user-centric, human experiences.">
+  <meta name="description" content="Anna Horobchuk is a creative product designer who brings clarity to complex enterprise and AI products.">
   <script>(function(){try{var q=new URLSearchParams(location.search);if(q.get("theme")==="classic"){localStorage.setItem("ah-theme","classic")}else if(localStorage.getItem("ah-theme")==="neon"){location.replace("neon/"+(location.pathname.split("/").pop()||"index.html")+location.hash)}}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Caveat:wght@600&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/v2.css?v=6">
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
 </head>
-<body>
+<body class="v2">
 
-  <!-- ============================================================ NAV -->
   <header class="site-nav">
     <div class="wrap site-nav__inner">
       <span class="status-badge">
         <span class="status-badge__dot" aria-hidden="true"></span>
         Available for New Project
       </span>
-
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
         <span class="sr-only">Toggle menu</span>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
-
       <nav>
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index.html#work">Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -63,142 +60,331 @@
   <main>
 
     <!-- ========================================================= HERO -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div>
-          <h1 class="hero__title">
-            I&rsquo;m Anna, a Product Designer at <span class="accent">DataRobot.</span>
-            I create clarity from complexity, and help teams ship products that create impact.
-          </h1>
-          <p class="hero__meta">
-            Previously at <a href="https://www.datarobot.com/" target="_blank" rel="noopener">DataRobot</a> and <a href="https://intellias.com/" target="_blank" rel="noopener">Intellias</a>
-          </p>
+    <section class="v2-hero">
+      <div class="wrap v2-hero__grid">
+        <div class="v2-hero__text">
+          <p class="v2-hero__hi">Hi, I&rsquo;m <strong>Anna Horobchuk.</strong></p>
+          <h1 class="v2-hero__title"><span class="v2-hero__pre">Creative</span> <span class="v2-hero__main">Product<br><span class="accent">Designer</span></span></h1>
+          <p class="v2-hero__lede">I create clarity from complexity: enterprise and AI products that engineers trust, design systems teams reuse, and tools data scientists enjoy working in.</p>
+          <div class="v2-btns">
+            <a class="v2-btn v2-btn--p" href="#work">See the work <span aria-hidden="true">&darr;</span></a>
+            <a class="v2-btn" href="contact.html">Let&rsquo;s talk</a>
+            <a class="v2-btn" href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&amp;ouid=112848843176912504899&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">R&eacute;sum&eacute; <span aria-hidden="true">&nearr;</span></a>
+          </div>
         </div>
-
-        <div class="portrait">
-          <img src="assets/img/portrait.webp" alt="Anna Horobchuk" style="object-position: 44% center;">
-        </div>
+        <aside class="v2-hero__side" aria-label="At a glance">
+          <img src="assets/img/about.jpg" alt="Anna Horobchuk with her Akita-Inu" width="290" height="387">
+          <div class="v2-exp">
+            <div class="v2-exp__row">
+              <p class="v2-exp__item"><b>13</b><span>years in design</span></p>
+              <span class="v2-exp__rule" aria-hidden="true"></span>
+              <p class="v2-exp__item v2-exp__item--accent"><b>7</b><span>years in product design</span></p>
+            </div>
+            <div class="v2-exp__bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          </div>
+          <p class="v2-hero__prev">Previously at <a href="https://www.datarobot.com/" target="_blank" rel="noopener">DataRobot</a></p>
+        </aside>
       </div>
     </section>
 
-    <!-- ========================================================= WORK -->
-    <section class="work" id="work" aria-label="Selected work">
-      <div class="wrap work__grid">
-
-        <a class="case-card case-card--lavender" href="work/workload-api.html">
-          <span class="badge-wip">Case study</span>
-          <h2 class="case-card__title">Workload API</h2>
-          <p class="case-card__desc">Enable workload deployment management and monitoring. Designed a set of entities to generalize and simplify execution and monitoring of customer code.</p>
-          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
-          <div class="case-card__thumb"><img src="assets/img/workload-api-cover.png" alt="Workload API console interface"></div>
-        </a>
-
-        <a class="case-card case-card--periwinkle" href="work/design-system.html">
-          <span class="badge-wip">Case study</span>
-          <h2 class="case-card__title">Design System</h2>
-          <p class="case-card__desc">A scalable design system that unified UI patterns across product teams.</p>
-          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
-          <div class="case-card__thumb"><img src="assets/img/design-system-cover.svg" alt="Design system component previews"></div>
-        </a>
-
-        <a class="case-card case-card--terminal" href="work/cli-theme/index.html">
-          <span class="badge-wip">Shipped &middot; 2026</span>
-          <h2 class="case-card__title">OpenCode theme.json</h2>
-          <p class="case-card__desc">
-            A dual-mode color theme for the OpenCode CLI &mdash; designed in Figma,
-            shipped as production JSON.
-          </p>
-          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
-
-          <!-- Cover: a small live render of the theme rather than a screenshot -->
-          <div class="case-card__thumb">
-            <div class="term-mock" aria-hidden="true">
-              <div class="term-mock__bar">
-                <i></i><i></i><i></i>
-                <span>anna &mdash; opencode &mdash; 80&times;24</span>
-              </div>
-              <div class="term-mock__body">
-                <p><span class="t-mut">&gt;</span> Explain the REST API overview</p>
-                <p class="t-head">## Methods</p>
-                <p><span class="t-key">def</span> <span class="t-fn">fetch</span>(<span class="t-str">url</span>):</p>
-                <p>&nbsp;&nbsp;<span class="t-key">return</span> requests.<span class="t-fn">get</span>(url)</p>
-                <p><span class="t-mut"># 44 color tokens, 2 modes</span></p>
-              </div>
+    <!-- =================================================== START HERE -->
+    <section class="v2-sec v2-sec--soft" aria-labelledby="start-title">
+      <div class="wrap">
+        <p class="v2-eyebrow">Start here</p>
+        <h2 class="v2-h2" id="start-title">What are you trying to solve?</h2>
+        <p class="v2-sub">Pick a goal to see how I&rsquo;d approach it, with real work to back it up.</p>
+        <div class="v2-goals" data-goals>
+          <div class="v2-goals__panel" aria-live="polite">
+            <span class="v2-chip" data-goal-chip>01 &middot; Simplify a complex Agentic AI platform</span>
+            <div>
+              <p class="v2-goals__line" data-goal-line>Turn tangled, conditional workflows into a few clear building blocks.</p>
+              <a class="v2-goals__link" data-goal-link href="work/workload-api.html">See it in Workload API &rarr;</a>
             </div>
           </div>
-        </a>
-
-        <a class="case-card case-card--butter" href="work/notebooks.html">
-          <span class="badge-wip">Case study</span>
-          <h2 class="case-card__title">Built in Notebooks</h2>
-          <p class="case-card__desc">Designing a fully hosted, Jupyter-compatible environment for rapid prototyping, model evaluation, and exploratory analysis.</p>
-          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
-          <div class="case-card__thumb"><img src="assets/img/notebooks/notebooks-session environment.png" alt="Notebooks interface"></div>
-        </a>
-
-        <a class="case-card case-card--sky hidden" href="work/case-study-5.html">
-          <span class="badge-wip">Placeholder</span>
-          <h2 class="case-card__title">Case Study Five</h2>
-          <p class="case-card__desc">A one-line description of the product and the problem it solves.</p>
-          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
-          <div class="case-card__thumb"><div class="thumb-ph">Cover image</div></div>
-        </a>
-
-        <a class="case-card case-card--mint hidden" href="work/case-study-6.html">
-          <span class="badge-wip">Placeholder</span>
-          <h2 class="case-card__title">Case Study Six</h2>
-          <p class="case-card__desc">A one-line description of the product and the problem it solves.</p>
-          <span class="case-card__cta">Read case study <span class="arrow">&rarr;</span></span>
-          <div class="case-card__thumb"><div class="thumb-ph">Cover image</div></div>
-        </a>
-
+          <button class="v2-goal" type="button" data-goal aria-pressed="true"><span class="v2-goal__n">01</span><span><span class="v2-goal__t">Simplify a complex Agentic AI platform</span><span class="v2-goal__l">Turn tangled, conditional workflows into a few clear building blocks.</span><span class="v2-goal__k">See it in Workload API &rarr;</span></span></button>
+          <button class="v2-goal" type="button" data-goal aria-pressed="false"><span class="v2-goal__n">02</span><span><span class="v2-goal__t">Build a design system</span><span class="v2-goal__l">One set of tokens and components that every product team can use.</span><span class="v2-goal__k">See it in Design System &rarr;</span></span></button>
+          <button class="v2-goal" type="button" data-goal aria-pressed="false"><span class="v2-goal__n">03</span><span><span class="v2-goal__t">Design tools for data and AI</span><span class="v2-goal__l">Code-first tools that work alongside automation instead of fighting it.</span><span class="v2-goal__k">See it in Built in Notebooks &rarr;</span></span></button>
+          <button class="v2-goal" type="button" data-goal aria-pressed="false"><span class="v2-goal__n">04</span><span><span class="v2-goal__t">Take design all the way to code</span><span class="v2-goal__l">Designed in Figma, shipped as production code, with nothing lost in handoff.</span><span class="v2-goal__k">See it in OpenCode theme.json &rarr;</span></span></button>
+        </div>
       </div>
     </section>
 
-    <hr class="section-rule">
-
-    <!-- ===================================================== MENTIONS -->
-  </main>
-
-  <!-- ======================================================== FOOTER -->
-  <footer>
-    <section class="connect" aria-labelledby="connect-title">
+    <!-- ===================================================== SELECTED WORK -->
+    <section class="v2-sec" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <h2 class="connect__title" id="connect-title">Let&rsquo;s Connect</h2>
-        <p class="connect__text">Feel free to reach out for collaborations or just a friendly hello &#128522;</p>
-        <a class="connect__email" href="mailto:annagorobchyk@gmail.com">annagorobchyk@gmail.com</a>
+        <p class="v2-eyebrow">Selected work</p>
+        <h2 class="v2-h2" id="work-title">Complex problems,<br>clear products.</h2>
 
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">
-            Linkedin
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <div class="v2-cards">
+          <a class="v2-card" href="work/workload-api.html">
+            <div class="v2-card__media" style="--tint:#e3e9fb">
+              <div class="v2-card__zoom">
+                <div class="v2-card__pad"><div class="v2-card__screen"><video src="assets/video/workload-api.mp4#t=0.1" muted loop playsinline preload="metadata" aria-hidden="true"></video></div></div>
+              </div>
+              <span class="v2-card__chip">01 / AI platform</span>
+            </div>
+            <div class="v2-card__body">
+              <div class="v2-card__head">
+                <div><h3 class="v2-card__title">Workload API</h3><p class="v2-card__tag">Workload orchestration for customer code at scale</p></div>
+                <span class="v2-card__arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+              </div>
+              <div class="v2-card__problem"><p class="v2-card__problem-k">The problem</p><p class="v2-card__problem-t">Deploying from source needed different inputs depending on whether the code had its own Dockerfile, so users guessed which fields applied.</p></div>
+              <div class="v2-card__stats"><div class="v2-card__stat"><b>+3.8%</b><span>Activation rate</span></div><div class="v2-card__stat"><b>8+ mo</b><span>Led the feature design</span></div><div class="v2-card__stat"><b>30&ndash;45&prime;</b><span>User test sessions</span></div></div>
+            </div>
           </a>
-          <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">
-            Medium
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="v2-card" href="work/design-system.html">
+            <div class="v2-card__media" style="--tint:#ebe5fb">
+              <div class="v2-card__zoom">
+                <div class="v2-card__pad"><div class="v2-card__screen"><video src="assets/video/design-system.mp4?v=2#t=3.45" data-play="once" muted playsinline preload="metadata" aria-hidden="true"></video></div></div>
+              </div>
+              <span class="v2-card__chip">02 / Design systems</span>
+            </div>
+            <div class="v2-card__body">
+              <div class="v2-card__head">
+                <div><h3 class="v2-card__title">Design System</h3><p class="v2-card__tag">Tokens, components and guidelines for every product team</p></div>
+                <span class="v2-card__arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+              </div>
+              <div class="v2-card__problem"><p class="v2-card__problem-k">The problem</p><p class="v2-card__problem-t">The system was huge and complex, and its React code was hard for AI tools to read, so generated UI drifted from the system.</p></div>
+              <div class="v2-card__stats"><div class="v2-card__stat"><b>65+</b><span>Components</span></div><div class="v2-card__stat"><b>WCAG 2.1</b><span>Accessibility standard</span></div><div class="v2-card__stat"><b>1 yr+</b><span>Design system lead</span></div></div>
+            </div>
           </a>
-          <a href="mailto:annagorobchyk@gmail.com">
-            Email
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="v2-card" href="work/notebooks.html">
+            <div class="v2-card__media" style="--tint:#f7efd0">
+              <div class="v2-card__zoom">
+                <div class="v2-card__pad"><div class="v2-card__screen"><video class="v2-card__video--top-left" src="assets/video/notebooks.mp4#t=0.1" muted loop playsinline preload="metadata" aria-hidden="true"></video></div></div>
+              </div>
+              <span class="v2-card__chip">03 / Data science</span>
+            </div>
+            <div class="v2-card__body">
+              <div class="v2-card__head">
+                <div><h3 class="v2-card__title">Built in Notebooks</h3><p class="v2-card__tag">Code-first work, without leaving DataRobot</p></div>
+                <span class="v2-card__arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+              </div>
+              <div class="v2-card__problem"><p class="v2-card__problem-k">The problem</p><p class="v2-card__problem-t">Users kept switching between no-code pipelines and custom code to fill the gaps automation couldn&rsquo;t handle.</p></div>
+              <div class="v2-card__stats"><div class="v2-card__stat"><b>12%</b><span>Adoption</span></div><div class="v2-card__stat"><b>1 yr+</b><span>Product designer</span></div></div>
+            </div>
           </a>
-          <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&ouid=112848843176912504899&rtpof=true&sd=true" target="_blank" rel="noopener">
-            CV
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="v2-card" href="work/cli-theme/index.html">
+            <div class="v2-card__media" style="--tint:#e0edf8">
+              <div class="v2-card__zoom">
+                <div class="v2-card__pad"><div class="v2-card__screen"><div class="v2-card__term"><div class="term-mock" aria-hidden="true">
+                  <div class="term-mock__bar"><i></i><i></i><i></i><span>anna &mdash; opencode &mdash; 80&times;24</span></div>
+                  <div class="term-mock__body">
+                    <p><span class="t-mut">&gt;</span> Explain the REST API overview</p>
+                    <p class="t-head">## Methods</p>
+                    <p><span class="t-key">def</span> <span class="t-fn">fetch</span>(<span class="t-str">url</span>):</p>
+                    <p>&nbsp;&nbsp;<span class="t-key">return</span> requests.<span class="t-fn">get</span>(url)</p>
+                    <p><span class="t-mut"># 44 color tokens, 2 modes</span></p>
+                  </div>
+                </div></div></div></div>
+              </div>
+              <span class="v2-card__chip">04 / Developer tools</span>
+            </div>
+            <div class="v2-card__body">
+              <div class="v2-card__head">
+                <div><h3 class="v2-card__title">OpenCode theme.json</h3><p class="v2-card__tag">A DataRobot theme for the OpenCode CLI &middot; Shipped 2026</p></div>
+                <span class="v2-card__arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+              </div>
+              <div class="v2-card__problem"><p class="v2-card__problem-k">The problem</p><p class="v2-card__problem-t">OpenCode shipped inside the DataRobot platform package with only its stock themes, so the tool developers live in didn&rsquo;t look like DataRobot.</p></div>
+              <div class="v2-card__stats"><div class="v2-card__stat"><b>44</b><span>Color tokens</span></div><div class="v2-card__stat"><b>2</b><span>Modes</span></div></div>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <div class="colophon">&copy; 2026 Anna Horobchuk</div>
+    <!-- ======================================================== WHAT I DO -->
+    <section class="v2-sec" aria-labelledby="do-title">
+      <div class="wrap">
+        <p class="v2-eyebrow">What I do</p>
+        <h2 class="v2-h2" id="do-title">From the first question to a shipped product.</h2>
+        <div class="v2-svcs">
+          <div class="v2-svc"><h3>Product strategy</h3><p>Turning a fuzzy goal into a clear problem, a success measure and a plan the team believes in.</p><span class="v2-chip">Discovery</span><span class="v2-chip">Workshops</span><span class="v2-chip">Metrics</span></div>
+          <div class="v2-svc"><h3>UX for complex platforms</h3><p>End-to-end flows for enterprise and developer products, from APIs and consoles to settings nobody wants to read.</p><span class="v2-chip">Flows</span><span class="v2-chip">IA</span><span class="v2-chip">UI</span></div>
+          <div class="v2-svc"><h3>Design systems</h3><p>Tokens, components and guidelines that keep many teams consistent and quick.</p><span class="v2-chip">Tokens</span><span class="v2-chip">Components</span><span class="v2-chip">Docs</span></div>
+          <div class="v2-svc"><h3>AI and data-heavy products</h3><p>Interfaces for ML and AI tools that stay transparent, controllable and useful.</p><span class="v2-chip">ML ops</span><span class="v2-chip">Notebooks</span><span class="v2-chip">Agents</span></div>
+          <div class="v2-svc"><h3>Prototyping</h3><p>Interactive prototypes real enough to test with users before a line of production code.</p><span class="v2-chip">Figma</span><span class="v2-chip">Claude Design</span></div>
+          <div class="v2-svc"><h3>UX research</h3><p>Interviews, usability tests and usage data that show what to build and what to cut.</p><span class="v2-chip">Interviews</span><span class="v2-chip">Testing</span><span class="v2-chip">Analytics</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= HOW I WORK -->
+    <section class="v2-sec v2-how" aria-labelledby="how-title" data-how>
+      <div class="wrap">
+        <div class="v2-head-row">
+          <div>
+            <p class="v2-eyebrow">How I work</p>
+            <h2 class="v2-h2" id="how-title">From fuzzy to clear,<br>in five steps.</h2>
+          </div>
+          <p class="v2-how__intro">Every project starts with too many ideas and ends with one clear answer. Pick a step to see what happens there, and where I did it for real.</p>
+        </div>
+
+        <div class="v2-journey">
+          <svg viewBox="0 0 1168 220" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="hw-g" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#794DE8"/><stop offset=".55" stop-color="#a77bff"/><stop offset="1" stop-color="#f0a8d8"/>
+          </linearGradient>
+          <clipPath id="hw-clip"><rect x="0" y="-10" width="233.6" height="240" class="v2-journey__clip"/></clipPath>
+        </defs>
+        <path d="M0 96.0L8 95.2L16 93.1L24 89.9L32 85.7L40 80.8L48 75.4L56 69.7L64 64.0L72 58.4L80 53.2L88 48.5L96 44.7L104 41.9L112 40.3L120 40.0L128 39.4L136 38.4L144 37.0L152 35.2L160 33.2L168 31.0L176 28.8L184 26.5L192 24.4L200 22.4L208 20.7L216 19.3L224 18.4L232 18.0L240 18.3L248 19.3L256 21.1L264 23.4L272 26.1L280 29.1L288 32.4L296 35.6L304 38.9L312 41.9L320 44.6L328 46.9L336 48.7L344 49.7L352 50.0L360 50.9L368 52.9L376 55.9L384 59.6L392 63.9L400 68.6L408 73.5L416 78.4L424 83.2L432 87.5L440 91.4L448 94.5L456 96.8L464 97.9L472 97.7L480 96.3L488 93.6L496 90.1L504 85.8L512 80.9L520 75.7L528 70.4L536 65.1L544 60.1L552 55.6L560 51.7L568 48.7L576 46.7L584 46.0L592 45.6L600 44.6L608 42.9L616 40.8L624 38.4L632 35.7L640 32.9L648 30.0L656 27.2L664 24.6L672 22.3L680 20.3L688 18.9L696 18.1L704 18.1L712 18.8L720 20.2L728 22.1L736 24.5L744 27.3L752 30.2L760 33.3L768 36.4L776 39.3L784 42.0L792 44.3L800 46.2L808 47.4L816 48.0L824 48.2L832 49.2L840 50.7L848 52.7L856 55.1L864 57.7L872 60.6L880 63.4L888 66.3L896 68.9L904 71.3L912 73.3L920 74.8L928 75.8L936 76.0L944 76.3L952 77.1L960 78.2L968 79.6L976 81.2L984 83.0L992 84.8L1000 86.7L1008 88.4L1016 90.1L1024 91.5L1032 92.7L1040 93.5L1048 94.0L1056 94.1L1064 94.4L1072 95.1L1080 96.0L1088 97.1L1096 98.3L1104 99.6L1112 100.9L1120 102.2L1128 103.5L1136 104.6L1144 105.6L1152 106.3L1160 106.8L1168 107.0L1168 113.0L1160 113.2L1152 113.7L1144 114.4L1136 115.4L1128 116.5L1120 117.8L1112 119.1L1104 120.4L1096 121.7L1088 122.9L1080 124.0L1072 124.9L1064 125.6L1056 125.9L1048 126.0L1040 126.5L1032 127.3L1024 128.5L1016 129.9L1008 131.6L1000 133.3L992 135.2L984 137.0L976 138.8L968 140.4L960 141.8L952 142.9L944 143.7L936 144.0L928 144.2L920 145.2L912 146.7L904 148.7L896 151.1L888 153.7L880 156.6L872 159.4L864 162.3L856 164.9L848 167.3L840 169.3L832 170.8L824 171.8L816 172.0L808 172.6L800 173.8L792 175.7L784 178.0L776 180.7L768 183.6L760 186.7L752 189.8L744 192.7L736 195.5L728 197.9L720 199.8L712 201.2L704 201.9L696 201.9L688 201.1L680 199.7L672 197.7L664 195.4L656 192.8L648 190.0L640 187.1L632 184.3L624 181.6L616 179.2L608 177.1L600 175.4L592 174.4L584 174.0L576 173.3L568 171.3L560 168.3L552 164.4L544 159.9L536 154.9L528 149.6L520 144.3L512 139.1L504 134.2L496 129.9L488 126.4L480 123.7L472 122.3L464 122.1L456 123.2L448 125.5L440 128.6L432 132.5L424 136.8L416 141.6L408 146.5L400 151.4L392 156.1L384 160.4L376 164.1L368 167.1L360 169.1L352 170.0L344 170.3L336 171.3L328 173.1L320 175.4L312 178.1L304 181.1L296 184.4L288 187.6L280 190.9L272 193.9L264 196.6L256 198.9L248 200.7L240 201.7L232 202.0L224 201.6L216 200.7L208 199.3L200 197.6L192 195.6L184 193.5L176 191.2L168 189.0L160 186.8L152 184.8L144 183.0L136 181.6L128 180.6L120 180.0L112 179.7L104 178.1L96 175.3L88 171.5L80 166.8L72 161.6L64 156.0L56 150.3L48 144.6L40 139.2L32 134.3L24 130.1L16 126.9L8 124.8L0 124.0Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <g fill="rgba(255,255,255,0.28)"><circle cx="0" cy="117" r="2.0"/><circle cx="246" cy="149" r="2.6"/><circle cx="385" cy="132" r="3.1"/><circle cx="634" cy="135" r="2.8"/><circle cx="954" cy="96" r="2.2"/><circle cx="827" cy="132" r="1.5"/><circle cx="799" cy="106" r="3.4"/><circle cx="943" cy="89" r="2.5"/><circle cx="1078" cy="113" r="2.8"/><circle cx="674" cy="178" r="3.4"/><circle cx="435" cy="105" r="3.2"/><circle cx="388" cy="81" r="2.1"/><circle cx="500" cy="103" r="3.5"/><circle cx="651" cy="144" r="3.3"/><circle cx="68" cy="90" r="2.6"/><circle cx="594" cy="101" r="1.8"/><circle cx="1062" cy="101" r="2.2"/><circle cx="402" cy="121" r="3.4"/><circle cx="601" cy="70" r="2.3"/><circle cx="331" cy="95" r="2.3"/><circle cx="388" cy="113" r="2.8"/><circle cx="272" cy="173" r="2.4"/><circle cx="1008" cy="114" r="2.8"/><circle cx="603" cy="111" r="2.9"/><circle cx="1097" cy="109" r="3.0"/><circle cx="293" cy="122" r="2.2"/><circle cx="386" cy="101" r="3.1"/><circle cx="1025" cy="100" r="3.2"/><circle cx="91" cy="99" r="1.7"/><circle cx="91" cy="167" r="1.9"/><circle cx="739" cy="54" r="2.4"/><circle cx="693" cy="48" r="3.4"/><circle cx="1033" cy="119" r="3.3"/><circle cx="1060" cy="115" r="2.0"/><circle cx="12" cy="105" r="1.6"/><circle cx="2" cy="112" r="1.9"/><circle cx="866" cy="109" r="2.9"/><circle cx="278" cy="168" r="1.9"/><circle cx="437" cy="121" r="1.7"/><circle cx="571" cy="54" r="3.4"/><circle cx="744" cy="175" r="1.4"/><circle cx="1051" cy="104" r="3.5"/><circle cx="660" cy="138" r="2.0"/><circle cx="260" cy="62" r="2.6"/><circle cx="61" cy="130" r="2.9"/><circle cx="834" cy="110" r="1.5"/><circle cx="129" cy="164" r="1.7"/><circle cx="803" cy="155" r="1.5"/><circle cx="1032" cy="118" r="3.6"/><circle cx="1115" cy="111" r="2.3"/><circle cx="290" cy="142" r="3.3"/><circle cx="465" cy="107" r="2.3"/><circle cx="1036" cy="111" r="2.2"/><circle cx="726" cy="149" r="2.1"/><circle cx="847" cy="102" r="1.8"/><circle cx="364" cy="161" r="3.6"/><circle cx="739" cy="169" r="3.4"/><circle cx="233" cy="135" r="1.7"/><circle cx="581" cy="117" r="3.1"/><circle cx="1105" cy="110" r="1.8"/><circle cx="522" cy="90" r="2.9"/><circle cx="609" cy="118" r="2.5"/><circle cx="884" cy="99" r="3.1"/><circle cx="30" cy="103" r="2.6"/><circle cx="237" cy="148" r="2.0"/><circle cx="275" cy="134" r="2.3"/><circle cx="88" cy="140" r="3.2"/><circle cx="1069" cy="118" r="2.9"/><circle cx="29" cy="119" r="2.7"/><circle cx="846" cy="151" r="1.5"/><circle cx="159" cy="51" r="1.6"/><circle cx="99" cy="51" r="2.7"/><circle cx="1105" cy="107" r="1.7"/><circle cx="236" cy="140" r="1.9"/><circle cx="533" cy="146" r="2.3"/><circle cx="787" cy="144" r="2.3"/><circle cx="486" cy="101" r="1.9"/><circle cx="943" cy="136" r="1.7"/><circle cx="1081" cy="110" r="1.7"/><circle cx="245" cy="127" r="1.8"/><circle cx="91" cy="84" r="2.8"/><circle cx="650" cy="107" r="3.6"/><circle cx="88" cy="100" r="2.1"/><circle cx="5" cy="102" r="2.3"/><circle cx="107" cy="77" r="3.4"/><circle cx="908" cy="127" r="2.4"/><circle cx="999" cy="126" r="3.2"/><circle cx="773" cy="119" r="2.2"/><circle cx="475" cy="110" r="2.5"/><circle cx="663" cy="145" r="2.9"/><circle cx="739" cy="146" r="3.3"/><circle cx="987" cy="130" r="2.4"/><circle cx="569" cy="161" r="3.5"/><circle cx="418" cy="89" r="2.2"/><circle cx="1031" cy="115" r="3.0"/><circle cx="1116" cy="111" r="1.9"/><circle cx="278" cy="155" r="1.6"/><circle cx="1069" cy="115" r="2.8"/><circle cx="831" cy="114" r="2.4"/><circle cx="1019" cy="112" r="3.3"/><circle cx="316" cy="133" r="2.4"/><circle cx="461" cy="106" r="2.7"/><circle cx="270" cy="173" r="3.2"/><circle cx="395" cy="124" r="3.3"/><circle cx="135" cy="85" r="3.4"/><circle cx="2" cy="104" r="2.3"/><circle cx="25" cy="116" r="3.4"/><circle cx="202" cy="63" r="3.5"/><circle cx="817" cy="74" r="1.7"/><circle cx="732" cy="32" r="3.2"/><circle cx="691" cy="153" r="1.7"/><circle cx="387" cy="128" r="3.5"/><circle cx="640" cy="123" r="3.1"/><circle cx="821" cy="136" r="2.7"/><circle cx="117" cy="52" r="2.7"/><circle cx="263" cy="123" r="2.0"/><circle cx="261" cy="130" r="2.8"/><circle cx="949" cy="96" r="3.4"/><circle cx="62" cy="125" r="2.3"/><circle cx="925" cy="119" r="3.2"/><circle cx="122" cy="164" r="2.5"/><circle cx="961" cy="106" r="3.3"/><circle cx="923" cy="123" r="3.4"/><circle cx="1002" cy="100" r="3.0"/><circle cx="181" cy="53" r="3.5"/><circle cx="1115" cy="108" r="1.6"/><circle cx="306" cy="167" r="3.3"/><circle cx="1117" cy="109" r="1.8"/><circle cx="35" cy="109" r="2.6"/><circle cx="165" cy="84" r="2.5"/><circle cx="265" cy="38" r="1.5"/><circle cx="109" cy="126" r="2.4"/><circle cx="944" cy="123" r="2.5"/><circle cx="818" cy="97" r="2.7"/><circle cx="900" cy="141" r="3.0"/><circle cx="705" cy="162" r="1.8"/><circle cx="76" cy="132" r="2.8"/><circle cx="504" cy="112" r="2.3"/><circle cx="578" cy="66" r="1.5"/><circle cx="92" cy="93" r="2.2"/><circle cx="234" cy="134" r="1.7"/><circle cx="61" cy="72" r="3.2"/><circle cx="1016" cy="97" r="3.1"/><circle cx="372" cy="100" r="3.4"/><circle cx="931" cy="83" r="3.6"/><circle cx="240" cy="134" r="2.3"/><circle cx="39" cy="95" r="3.1"/><circle cx="881" cy="90" r="3.3"/><circle cx="950" cy="100" r="2.4"/><circle cx="349" cy="83" r="3.3"/><circle cx="1016" cy="115" r="2.5"/><circle cx="1012" cy="119" r="3.2"/><circle cx="888" cy="145" r="2.9"/><circle cx="333" cy="134" r="2.1"/><circle cx="1009" cy="100" r="3.3"/><circle cx="769" cy="152" r="2.4"/><circle cx="929" cy="129" r="1.5"/><circle cx="271" cy="62" r="1.5"/><circle cx="675" cy="161" r="2.8"/><circle cx="997" cy="123" r="3.2"/><circle cx="242" cy="121" r="2.4"/><circle cx="451" cy="111" r="3.1"/><circle cx="605" cy="96" r="2.5"/><circle cx="286" cy="139" r="3.1"/><circle cx="347" cy="83" r="2.8"/><circle cx="644" cy="174" r="2.7"/><circle cx="369" cy="120" r="2.7"/><circle cx="743" cy="121" r="1.8"/></g>
+        <g clip-path="url(#hw-clip)">
+          <path d="M0 96.0L8 95.2L16 93.1L24 89.9L32 85.7L40 80.8L48 75.4L56 69.7L64 64.0L72 58.4L80 53.2L88 48.5L96 44.7L104 41.9L112 40.3L120 40.0L128 39.4L136 38.4L144 37.0L152 35.2L160 33.2L168 31.0L176 28.8L184 26.5L192 24.4L200 22.4L208 20.7L216 19.3L224 18.4L232 18.0L240 18.3L248 19.3L256 21.1L264 23.4L272 26.1L280 29.1L288 32.4L296 35.6L304 38.9L312 41.9L320 44.6L328 46.9L336 48.7L344 49.7L352 50.0L360 50.9L368 52.9L376 55.9L384 59.6L392 63.9L400 68.6L408 73.5L416 78.4L424 83.2L432 87.5L440 91.4L448 94.5L456 96.8L464 97.9L472 97.7L480 96.3L488 93.6L496 90.1L504 85.8L512 80.9L520 75.7L528 70.4L536 65.1L544 60.1L552 55.6L560 51.7L568 48.7L576 46.7L584 46.0L592 45.6L600 44.6L608 42.9L616 40.8L624 38.4L632 35.7L640 32.9L648 30.0L656 27.2L664 24.6L672 22.3L680 20.3L688 18.9L696 18.1L704 18.1L712 18.8L720 20.2L728 22.1L736 24.5L744 27.3L752 30.2L760 33.3L768 36.4L776 39.3L784 42.0L792 44.3L800 46.2L808 47.4L816 48.0L824 48.2L832 49.2L840 50.7L848 52.7L856 55.1L864 57.7L872 60.6L880 63.4L888 66.3L896 68.9L904 71.3L912 73.3L920 74.8L928 75.8L936 76.0L944 76.3L952 77.1L960 78.2L968 79.6L976 81.2L984 83.0L992 84.8L1000 86.7L1008 88.4L1016 90.1L1024 91.5L1032 92.7L1040 93.5L1048 94.0L1056 94.1L1064 94.4L1072 95.1L1080 96.0L1088 97.1L1096 98.3L1104 99.6L1112 100.9L1120 102.2L1128 103.5L1136 104.6L1144 105.6L1152 106.3L1160 106.8L1168 107.0L1168 113.0L1160 113.2L1152 113.7L1144 114.4L1136 115.4L1128 116.5L1120 117.8L1112 119.1L1104 120.4L1096 121.7L1088 122.9L1080 124.0L1072 124.9L1064 125.6L1056 125.9L1048 126.0L1040 126.5L1032 127.3L1024 128.5L1016 129.9L1008 131.6L1000 133.3L992 135.2L984 137.0L976 138.8L968 140.4L960 141.8L952 142.9L944 143.7L936 144.0L928 144.2L920 145.2L912 146.7L904 148.7L896 151.1L888 153.7L880 156.6L872 159.4L864 162.3L856 164.9L848 167.3L840 169.3L832 170.8L824 171.8L816 172.0L808 172.6L800 173.8L792 175.7L784 178.0L776 180.7L768 183.6L760 186.7L752 189.8L744 192.7L736 195.5L728 197.9L720 199.8L712 201.2L704 201.9L696 201.9L688 201.1L680 199.7L672 197.7L664 195.4L656 192.8L648 190.0L640 187.1L632 184.3L624 181.6L616 179.2L608 177.1L600 175.4L592 174.4L584 174.0L576 173.3L568 171.3L560 168.3L552 164.4L544 159.9L536 154.9L528 149.6L520 144.3L512 139.1L504 134.2L496 129.9L488 126.4L480 123.7L472 122.3L464 122.1L456 123.2L448 125.5L440 128.6L432 132.5L424 136.8L416 141.6L408 146.5L400 151.4L392 156.1L384 160.4L376 164.1L368 167.1L360 169.1L352 170.0L344 170.3L336 171.3L328 173.1L320 175.4L312 178.1L304 181.1L296 184.4L288 187.6L280 190.9L272 193.9L264 196.6L256 198.9L248 200.7L240 201.7L232 202.0L224 201.6L216 200.7L208 199.3L200 197.6L192 195.6L184 193.5L176 191.2L168 189.0L160 186.8L152 184.8L144 183.0L136 181.6L128 180.6L120 180.0L112 179.7L104 178.1L96 175.3L88 171.5L80 166.8L72 161.6L64 156.0L56 150.3L48 144.6L40 139.2L32 134.3L24 130.1L16 126.9L8 124.8L0 124.0Z" fill="url(#hw-g)" fill-opacity="0.22" stroke="url(#hw-g)" stroke-width="1.5"/>
+          <g fill="#d9ccff"><circle cx="0" cy="117" r="2.0"/><circle cx="246" cy="149" r="2.6"/><circle cx="385" cy="132" r="3.1"/><circle cx="634" cy="135" r="2.8"/><circle cx="954" cy="96" r="2.2"/><circle cx="827" cy="132" r="1.5"/><circle cx="799" cy="106" r="3.4"/><circle cx="943" cy="89" r="2.5"/><circle cx="1078" cy="113" r="2.8"/><circle cx="674" cy="178" r="3.4"/><circle cx="435" cy="105" r="3.2"/><circle cx="388" cy="81" r="2.1"/><circle cx="500" cy="103" r="3.5"/><circle cx="651" cy="144" r="3.3"/><circle cx="68" cy="90" r="2.6"/><circle cx="594" cy="101" r="1.8"/><circle cx="1062" cy="101" r="2.2"/><circle cx="402" cy="121" r="3.4"/><circle cx="601" cy="70" r="2.3"/><circle cx="331" cy="95" r="2.3"/><circle cx="388" cy="113" r="2.8"/><circle cx="272" cy="173" r="2.4"/><circle cx="1008" cy="114" r="2.8"/><circle cx="603" cy="111" r="2.9"/><circle cx="1097" cy="109" r="3.0"/><circle cx="293" cy="122" r="2.2"/><circle cx="386" cy="101" r="3.1"/><circle cx="1025" cy="100" r="3.2"/><circle cx="91" cy="99" r="1.7"/><circle cx="91" cy="167" r="1.9"/><circle cx="739" cy="54" r="2.4"/><circle cx="693" cy="48" r="3.4"/><circle cx="1033" cy="119" r="3.3"/><circle cx="1060" cy="115" r="2.0"/><circle cx="12" cy="105" r="1.6"/><circle cx="2" cy="112" r="1.9"/><circle cx="866" cy="109" r="2.9"/><circle cx="278" cy="168" r="1.9"/><circle cx="437" cy="121" r="1.7"/><circle cx="571" cy="54" r="3.4"/><circle cx="744" cy="175" r="1.4"/><circle cx="1051" cy="104" r="3.5"/><circle cx="660" cy="138" r="2.0"/><circle cx="260" cy="62" r="2.6"/><circle cx="61" cy="130" r="2.9"/><circle cx="834" cy="110" r="1.5"/><circle cx="129" cy="164" r="1.7"/><circle cx="803" cy="155" r="1.5"/><circle cx="1032" cy="118" r="3.6"/><circle cx="1115" cy="111" r="2.3"/><circle cx="290" cy="142" r="3.3"/><circle cx="465" cy="107" r="2.3"/><circle cx="1036" cy="111" r="2.2"/><circle cx="726" cy="149" r="2.1"/><circle cx="847" cy="102" r="1.8"/><circle cx="364" cy="161" r="3.6"/><circle cx="739" cy="169" r="3.4"/><circle cx="233" cy="135" r="1.7"/><circle cx="581" cy="117" r="3.1"/><circle cx="1105" cy="110" r="1.8"/><circle cx="522" cy="90" r="2.9"/><circle cx="609" cy="118" r="2.5"/><circle cx="884" cy="99" r="3.1"/><circle cx="30" cy="103" r="2.6"/><circle cx="237" cy="148" r="2.0"/><circle cx="275" cy="134" r="2.3"/><circle cx="88" cy="140" r="3.2"/><circle cx="1069" cy="118" r="2.9"/><circle cx="29" cy="119" r="2.7"/><circle cx="846" cy="151" r="1.5"/><circle cx="159" cy="51" r="1.6"/><circle cx="99" cy="51" r="2.7"/><circle cx="1105" cy="107" r="1.7"/><circle cx="236" cy="140" r="1.9"/><circle cx="533" cy="146" r="2.3"/><circle cx="787" cy="144" r="2.3"/><circle cx="486" cy="101" r="1.9"/><circle cx="943" cy="136" r="1.7"/><circle cx="1081" cy="110" r="1.7"/><circle cx="245" cy="127" r="1.8"/><circle cx="91" cy="84" r="2.8"/><circle cx="650" cy="107" r="3.6"/><circle cx="88" cy="100" r="2.1"/><circle cx="5" cy="102" r="2.3"/><circle cx="107" cy="77" r="3.4"/><circle cx="908" cy="127" r="2.4"/><circle cx="999" cy="126" r="3.2"/><circle cx="773" cy="119" r="2.2"/><circle cx="475" cy="110" r="2.5"/><circle cx="663" cy="145" r="2.9"/><circle cx="739" cy="146" r="3.3"/><circle cx="987" cy="130" r="2.4"/><circle cx="569" cy="161" r="3.5"/><circle cx="418" cy="89" r="2.2"/><circle cx="1031" cy="115" r="3.0"/><circle cx="1116" cy="111" r="1.9"/><circle cx="278" cy="155" r="1.6"/><circle cx="1069" cy="115" r="2.8"/><circle cx="831" cy="114" r="2.4"/><circle cx="1019" cy="112" r="3.3"/><circle cx="316" cy="133" r="2.4"/><circle cx="461" cy="106" r="2.7"/><circle cx="270" cy="173" r="3.2"/><circle cx="395" cy="124" r="3.3"/><circle cx="135" cy="85" r="3.4"/><circle cx="2" cy="104" r="2.3"/><circle cx="25" cy="116" r="3.4"/><circle cx="202" cy="63" r="3.5"/><circle cx="817" cy="74" r="1.7"/><circle cx="732" cy="32" r="3.2"/><circle cx="691" cy="153" r="1.7"/><circle cx="387" cy="128" r="3.5"/><circle cx="640" cy="123" r="3.1"/><circle cx="821" cy="136" r="2.7"/><circle cx="117" cy="52" r="2.7"/><circle cx="263" cy="123" r="2.0"/><circle cx="261" cy="130" r="2.8"/><circle cx="949" cy="96" r="3.4"/><circle cx="62" cy="125" r="2.3"/><circle cx="925" cy="119" r="3.2"/><circle cx="122" cy="164" r="2.5"/><circle cx="961" cy="106" r="3.3"/><circle cx="923" cy="123" r="3.4"/><circle cx="1002" cy="100" r="3.0"/><circle cx="181" cy="53" r="3.5"/><circle cx="1115" cy="108" r="1.6"/><circle cx="306" cy="167" r="3.3"/><circle cx="1117" cy="109" r="1.8"/><circle cx="35" cy="109" r="2.6"/><circle cx="165" cy="84" r="2.5"/><circle cx="265" cy="38" r="1.5"/><circle cx="109" cy="126" r="2.4"/><circle cx="944" cy="123" r="2.5"/><circle cx="818" cy="97" r="2.7"/><circle cx="900" cy="141" r="3.0"/><circle cx="705" cy="162" r="1.8"/><circle cx="76" cy="132" r="2.8"/><circle cx="504" cy="112" r="2.3"/><circle cx="578" cy="66" r="1.5"/><circle cx="92" cy="93" r="2.2"/><circle cx="234" cy="134" r="1.7"/><circle cx="61" cy="72" r="3.2"/><circle cx="1016" cy="97" r="3.1"/><circle cx="372" cy="100" r="3.4"/><circle cx="931" cy="83" r="3.6"/><circle cx="240" cy="134" r="2.3"/><circle cx="39" cy="95" r="3.1"/><circle cx="881" cy="90" r="3.3"/><circle cx="950" cy="100" r="2.4"/><circle cx="349" cy="83" r="3.3"/><circle cx="1016" cy="115" r="2.5"/><circle cx="1012" cy="119" r="3.2"/><circle cx="888" cy="145" r="2.9"/><circle cx="333" cy="134" r="2.1"/><circle cx="1009" cy="100" r="3.3"/><circle cx="769" cy="152" r="2.4"/><circle cx="929" cy="129" r="1.5"/><circle cx="271" cy="62" r="1.5"/><circle cx="675" cy="161" r="2.8"/><circle cx="997" cy="123" r="3.2"/><circle cx="242" cy="121" r="2.4"/><circle cx="451" cy="111" r="3.1"/><circle cx="605" cy="96" r="2.5"/><circle cx="286" cy="139" r="3.1"/><circle cx="347" cy="83" r="2.8"/><circle cx="644" cy="174" r="2.7"/><circle cx="369" cy="120" r="2.7"/><circle cx="743" cy="121" r="1.8"/></g>
+        </g>
+        <line x1="233.6" y1="0" x2="233.6" y2="220" stroke="rgba(255,255,255,0.07)"/>
+        <line x1="467.2" y1="0" x2="467.2" y2="220" stroke="rgba(255,255,255,0.07)"/>
+        <line x1="700.8" y1="0" x2="700.8" y2="220" stroke="rgba(255,255,255,0.07)"/>
+        <line x1="934.4" y1="0" x2="934.4" y2="220" stroke="rgba(255,255,255,0.07)"/>
+        <circle cx="1166" cy="110" r="6" fill="#f0a8d8"/>
+        <circle cx="1166" cy="110" r="14" fill="none" stroke="#f0a8d8" stroke-opacity=".4"/>
+      </svg>
+          <div class="v2-journey__steps">
+          <button class="v2-journey__step" type="button" data-step aria-pressed="true"><span class="n">01</span><span class="t">Discover</span></button>
+          <button class="v2-journey__step" type="button" data-step aria-pressed="false"><span class="n">02</span><span class="t">Define</span></button>
+          <button class="v2-journey__step" type="button" data-step aria-pressed="false"><span class="n">03</span><span class="t">Design</span></button>
+          <button class="v2-journey__step" type="button" data-step aria-pressed="false"><span class="n">04</span><span class="t">Test</span></button>
+          <button class="v2-journey__step" type="button" data-step aria-pressed="false"><span class="n">05</span><span class="t">Deliver</span></button>
+          </div>
+        </div>
+        <div class="v2-journey__scale" aria-hidden="true"><span>&larr; Many ideas</span><span>Explore</span><span>Focus</span><span>Explore</span><span>Prove</span><span>One clear answer &rarr;</span></div>
+
+        <div class="v2-how__panels" aria-live="polite">
+          <div class="v2-how__step">
+            <span class="v2-how__num" aria-hidden="true" data-how-num>01</span>
+            <p class="v2-eyebrow" data-how-when>Go wide</p>
+            <h3 class="v2-how__name" data-how-name>Discover</h3>
+            <p class="v2-how__text" data-how-text>Stakeholder interviews, user research and real usage data. I look at how people actually work today, not how we think they do, and we agree on the one outcome this work must move.</p>
+            <div class="v2-how__dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="v2-how__get">
+            <p class="v2-eyebrow">You get</p>
+            <ul class="v2-how__list" data-how-get>
+              <li><i aria-hidden="true">&#9678;</i><span>Research summary</span></li>
+              <li><i aria-hidden="true">?</i><span>Problem statement</span></li>
+              <li><i aria-hidden="true">&#8599;</i><span>Success measure</span></li>
+            </ul>
+            <p class="v2-eyebrow v2-how__tools-label">Tools</p>
+            <p class="v2-how__tools" data-how-tools>Claude &middot; Figma</p>
+          </div>
+          <div class="v2-how__proof">
+            <div>
+              <p class="v2-eyebrow">Done for real</p>
+              <p class="v2-how__work" data-how-work>Built in Notebooks</p>
+              <p class="v2-how__proof-text" data-how-proof>Studied how notebooks were really used across the platform and found the pattern that shaped everything: people jumping between no-code pipelines and custom code.</p>
+            </div>
+            <a href="work/notebooks.html" data-how-link>Read the case study &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== TOOLKIT -->
+    <section class="v2-toolkit" aria-label="Daily toolkit">
+      <div class="wrap">
+        <p class="v2-eyebrow">Daily toolkit</p>
+        <ul class="v2-tools">
+          <li class="v2-tool"><img src="assets/img/tools/figma.png" alt="" width="20" height="20">Figma</li>
+          <li class="v2-tool"><img src="assets/img/tools/claude.png" alt="" width="20" height="20">Claude</li>
+          <li class="v2-tool"><img src="assets/img/tools/claude.png" alt="" width="20" height="20">Claude Code</li>
+          <li class="v2-tool"><img src="assets/img/tools/claude.png" alt="" width="20" height="20">Claude Design</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================================ QUICK ANSWERS -->
+    <section class="v2-sec v2-sec--flush" aria-labelledby="faq-title">
+      <div class="wrap v2-split">
+        <div>
+          <p class="v2-eyebrow">Quick answers</p>
+          <h2 class="v2-h2" id="faq-title">For recruiters and hiring managers.</h2>
+          <a class="v2-btn" href="about.html">More about me &rarr;</a>
+        </div>
+        <div>
+          <details class="v2-faq" open><summary>What roles are you open to?</summary><p>Product Designer and UX/UI Designer roles.</p></details>
+          <details class="v2-faq"><summary>Which industries have you worked in?</summary><p>Enterprise AI and machine learning. For almost 7 years at DataRobot I designed platforms used by data scientists and engineers.</p></details>
+          <details class="v2-faq"><summary>Do you work with engineers directly?</summary><p>Every day. I work side by side with engineers on consoles and the design system, review component code in GitHub, and ship some of it myself, like the OpenCode theme.</p></details>
+          <details class="v2-faq"><summary>Can you lead research as well as design?</summary><p>Yes. On Workload API I ran 30&ndash;45 minute usability sessions on an interactive prototype before engineering started.</p></details>
+          <details class="v2-faq"><summary>How soon can you start?</summary><p>Right away. I&rsquo;m available now.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= THE LAB -->
+    <section class="v2-sec" aria-labelledby="lab-title">
+      <div class="wrap">
+        <div class="v2-head-row">
+          <div>
+            <p class="v2-eyebrow">The lab</p>
+            <h2 class="v2-h2" id="lab-title">Play with the details.</h2>
+            <p class="v2-sub">Small interactions I tune until they feel right. Go ahead, poke them.</p>
+          </div>
+          <a class="v2-btn" href="experiments.html">More experiments &rarr;</a>
+        </div>
+        <div class="v2-lab">
+          <div>
+            <div class="v2-stage">
+              <button class="v2-switch" type="button" role="switch" aria-checked="false" aria-label="Spring toggle" data-spring-switch><span class="v2-switch__knob"></span></button>
+            </div>
+            <p class="v2-lab__t">Spring toggle</p>
+            <p class="v2-lab__c">stiffness 520 &middot; damping 22</p>
+          </div>
+          <div>
+            <div class="v2-stage">
+              <button class="v2-throw" type="button" aria-label="Physics card: drag it, or press Enter to throw it" data-throw>
+                <span class="v2-throw__k">Case study</span>
+                <span class="v2-throw__t">Drag me</span>
+                <span class="v2-throw__s">and let go</span>
+              </button>
+            </div>
+            <p class="v2-lab__t">Physics card</p>
+            <p class="v2-lab__c">Drag it, throw it, it comes back</p>
+          </div>
+          <div>
+            <div class="v2-stage v2-stage--slider">
+              <div class="v2-slider__row"><span id="pitch-label">Pitch</span><span class="v2-slider__val" data-slider-val>40</span></div>
+              <div class="v2-slider" role="slider" tabindex="0" aria-labelledby="pitch-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" data-slider>
+                <span class="v2-slider__track"></span><span class="v2-slider__fill" style="width:40%"></span><span class="v2-slider__thumb" style="left:40%"></span>
+              </div>
+              <div class="v2-slider__ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <p class="v2-lab__t">Tuned slider</p>
+            <p class="v2-lab__c">Pitch follows the value (sound on)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== CLOSING PANEL -->
+    <section class="wrap v2-cta-wrap" aria-labelledby="cta-title">
+      <div class="v2-cta">
+        <p class="v2-eyebrow">Available for new projects</p>
+        <h2 class="v2-cta__title" id="cta-title">Have a complex product that needs to feel clear?</h2>
+        <p class="v2-cta__text">Available now for Product Designer and UX/UI Designer roles.</p>
+        <a class="v2-btn v2-btn--dark" href="contact.html">Start a conversation &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap v2-foot">
+      <div class="v2-foot__links">
+        <a href="mailto:annagorobchyk@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">Linkedin</a>
+        <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">Medium</a>
+        <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&amp;ouid=112848843176912504899&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">CV</a>
+      </div>
+      <p class="v2-foot__copy">&copy; 2026 Anna Horobchuk</p>
   </footer>
 
   <button class="to-top" type="button">
     <span class="sr-only">Back to top</span>
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
-      <path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
   <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/v2.js?v=4"></script>
 </body>
 </html>

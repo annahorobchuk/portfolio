@@ -4,15 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About — Anna Horobchuk</title>
-  <meta name="description" content="About Anna Horobchuk, product designer.">
+  <meta name="description" content="About Anna Horobchuk: product designer, fine artist and Akita-Inu trainer based in Kyiv, Ukraine.">
   <script>(function(){try{var q=new URLSearchParams(location.search);if(q.get("theme")==="classic"){localStorage.setItem("ah-theme","classic")}else if(localStorage.getItem("ah-theme")==="neon"){location.replace("neon/"+(location.pathname.split("/").pop()||"index.html")+location.hash)}}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/v2.css?v=6">
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
 </head>
-<body>
+<body class="v2">
 
   <header class="site-nav">
     <div class="wrap site-nav__inner">
@@ -27,102 +28,143 @@
       <nav>
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#work">Work</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="theme-switch">
-          <div class="theme-switch__pill" role="group" aria-label="Theme">
-            <span class="theme-switch__opt" aria-current="true">Classic theme</span>
-            <a class="theme-switch__opt" href="neon/about.html" aria-describedby="theme-preview">The way I want it</a>
-          </div>
-          <span class="theme-try" aria-hidden="true">
-            <svg viewBox="0 0 40 34" width="40" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30 C 10 16, 22 8, 34 5"/><path d="M27 2 L35 5 L30 11"/></svg>
-            <span>Try me</span>
-          </span>
-          <a class="theme-preview" id="theme-preview" href="neon/about.html" tabindex="-1" aria-label="Preview of the theme The way I want it">
-            <span class="theme-preview__box" aria-hidden="true">
-              <img class="theme-preview__img" src="assets/img/theme-preview-classic.webp" alt="" width="640" height="400" decoding="async">
-              <img class="theme-preview__img theme-preview__img--neon" src="assets/img/theme-preview-neon.webp" alt="" width="640" height="400" decoding="async">
-              <span class="theme-preview__scan"></span>
-            </span>
-            <span class="theme-preview__caption" aria-hidden="true">
-              <span>Classic theme <b>&rarr;</b> The way I want it</span>
-              <span class="theme-preview__cta">Click to switch</span>
-            </span>
-          </a>
-        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-head">
-      <div class="wrap about__grid">
+    <section class="v2-hero">
+      <div class="wrap v2-about-intro">
         <div>
-          <h1 class="page-head__title">I am Anna, a product designer based in Ukraine.</h1>
-
-          <div class="prose">
-            <p>
-              My most recent work stint was with <a href="https://www.datarobot.com/" target="_blank" rel="noopener">DataRobot</a> where I led product design for Workload API, a feature enabling teams to deploy, monitor, and manage customer code at scale. Being a part of the design team for almost 7 years in this young, rapidly growing enterprise startup environment taught me how to balance business goals and engineering constraints as I unrelentingly advocated for the user.
-            </p>
-            <p>
-              I graduated from <a href="https://cdu.edu.ua/en/" target="_blank" rel="noopener">The Bohdan Khmelnytsky National University of Cherkasy</a> with a degree in <a href="https://pedosvita.cdu.edu.ua/?doing_wp_cron=1790249778.0597710609436035156250" target="_blank" rel="noopener">Fine Art</a>.
-            </p>
-            <p>
-              I'm an owner of a wonderful Akita-inu dog, working and training her with pleasure. Teaching her how to be friends with cats and everything around. I enjoy meditation and self-organization techniques that help me stay grounded and focused.
-            </p>
-            <p><a class="btn-text" href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&ouid=112848843176912504899&rtpof=true&sd=true" target="_blank" rel="noopener">R&eacute;sum&eacute; <span aria-hidden="true">&rarr;</span></a></p>
+          <p class="v2-eyebrow">About</p>
+          <h1 class="v2-about__title">Product designer.<br><span class="accent">Fine artist.</span><span class="v2-about__hobby"><span class="v2-about__leash">Akita-Inu trainer.<svg viewBox="0 0 700 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 22 C 120 4, 220 36, 350 18 S 580 6, 698 26" vector-effect="non-scaling-stroke"/></svg></span><svg class="v2-about__paw" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><ellipse cx="20" cy="27" rx="9" ry="7.5"/><ellipse cx="9" cy="15" rx="4" ry="5.2" transform="rotate(-20 9 15)"/><ellipse cx="17" cy="9.5" rx="4" ry="5.4"/><ellipse cx="26" cy="10" rx="4" ry="5.4"/><ellipse cx="33" cy="17" rx="4" ry="5.2" transform="rotate(20 33 17)"/></svg></span></h1>
+          <p class="v2-about__lede">I am Anna, a product designer based in Ukraine. I create clarity from complexity.</p>
+          <p class="v2-about__body">My most recent work stint was with <a href="https://www.datarobot.com/" target="_blank" rel="noopener">DataRobot</a>, where I led product design for Workload API, a feature enabling teams to deploy, monitor and manage customer code at scale. Being part of the design team for almost 7 years in this young, rapidly growing enterprise startup taught me how to balance business goals and engineering constraints as I unrelentingly advocated for the user.</p>
+          <div class="v2-btns">
+            <a class="v2-btn v2-btn--p" href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&amp;ouid=112848843176912504899&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">R&eacute;sum&eacute; <span aria-hidden="true">&nearr;</span></a>
+            <a class="v2-btn" href="contact.html">Let&rsquo;s talk</a>
           </div>
         </div>
+        <aside class="v2-glance" aria-labelledby="glance-title">
+          <p class="v2-eyebrow" id="glance-title">At a glance</p>
+          <div class="v2-stats">
+            <div class="v2-stat"><b>13</b><span>years in design</span></div>
+            <div class="v2-stat v2-stat--acc"><b>7</b><span>years in product design</span></div>
+          </div>
+          <p class="v2-glance__line">Based in <b>Kyiv, Ukraine</b>. Most recently at <b>DataRobot</b>. Fine Art degree. <span class="v2-glance__status"><span class="v2-dot" aria-hidden="true"></span>Available now</span></p>
+        </aside>
+      </div>
+    </section>
 
-        <div class="portrait">
-          <img src="assets/img/about.jpg" alt="Anna Horobchuk">
+    <section class="v2-sec v2-sec--soft" aria-labelledby="principles-title">
+      <div class="wrap">
+        <p class="v2-eyebrow">Principles</p>
+        <h2 class="v2-h2" id="principles-title">What I hold on to.</h2>
+        <div class="v2-principles">
+          <div class="v2-principle"><p class="v2-principle__n">01</p><h3>Clarity from complexity</h3><p>Complex systems deserve simple surfaces. If a screen needs a manual, it needs another pass.</p></div>
+          <div class="v2-principle"><p class="v2-principle__n">02</p><h3>Always the user&rsquo;s advocate</h3><p>Business goals and engineering limits are real. So are the people who have to use the result.</p></div>
+          <div class="v2-principle"><p class="v2-principle__n">03</p><h3>Systems over screens</h3><p>Good tokens and components let every team, and every AI tool, build the right thing.</p></div>
+          <div class="v2-principle"><p class="v2-principle__n">04</p><h3>Test before you build</h3><p>A prototype in front of real users is cheaper than a release in front of all of them.</p></div>
         </div>
       </div>
     </section>
 
-    <hr class="section-rule">
-
-    <section class="mentions" aria-labelledby="illos-title">
-      <div class="wrap">
-        <h2 class="section-label" id="illos-title">Illustrations</h2>
-        <p class="section-intro">I'm an artistic type of person, in my spare time I enjoy drawing</p>
-        <div class="gallery">
-          <img class="gallery__item" src="assets/img/Illustration1.png" alt="Illustration artwork">
-          <img class="gallery__item" src="assets/img/Illustration2.png" alt="Illustration artwork">
-          <img class="gallery__item" src="assets/img/Illustration3.png" alt="Illustration artwork">
+    <section class="v2-sec" aria-labelledby="toolkit-title">
+      <div class="wrap v2-split">
+        <div>
+          <p class="v2-eyebrow">Toolkit</p>
+          <h2 class="v2-h2" id="toolkit-title">What I bring to a team.</h2>
         </div>
+        <div>
+          <div class="v2-tabs" role="tablist" aria-label="Toolkit areas" data-tabs>
+            <button class="v2-tab" type="button" role="tab" id="tab-strategy" aria-controls="panel-strategy" aria-selected="true" tabindex="0">Strategy</button>
+            <button class="v2-tab" type="button" role="tab" id="tab-craft" aria-controls="panel-craft" aria-selected="false" tabindex="-1">Craft</button>
+            <button class="v2-tab" type="button" role="tab" id="tab-systems" aria-controls="panel-systems" aria-selected="false" tabindex="-1">Systems</button>
+            <button class="v2-tab" type="button" role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="false" tabindex="-1">AI</button>
+            <button class="v2-tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button>
+          </div>
+          <ul class="v2-tabpanel" role="tabpanel" id="panel-strategy" aria-labelledby="tab-strategy"><li>Product discovery</li><li>Problem framing</li><li>Success metrics</li><li>Stakeholder alignment</li><li>Roadmap input</li></ul>
+          <ul class="v2-tabpanel" role="tabpanel" id="panel-craft" aria-labelledby="tab-craft" hidden><li>User flows</li><li>Information architecture</li><li>Interaction design</li><li>Visual design</li><li>Prototyping</li></ul>
+          <ul class="v2-tabpanel" role="tabpanel" id="panel-systems" aria-labelledby="tab-systems" hidden><li>Design tokens</li><li>Component libraries</li><li>Light and dark modes</li><li>Documentation</li><li>WCAG 2.1 accessibility</li></ul>
+          <ul class="v2-tabpanel" role="tabpanel" id="panel-ai" aria-labelledby="tab-ai" hidden><li>Agentic AI platforms</li><li>ML and data tools</li><li>AI-ready design systems</li><li>Designing with Claude</li><li>Prototyping with Claude Design</li></ul>
+          <ul class="v2-tabpanel" role="tabpanel" id="panel-tools" aria-labelledby="tab-tools" hidden><li>Figma</li><li>Claude</li><li>Claude Code</li><li>Claude Design</li><li>Figma variables</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="v2-sec" aria-labelledby="career-title">
+      <div class="wrap v2-split">
+        <div>
+          <p class="v2-eyebrow">Career</p>
+          <h2 class="v2-h2" id="career-title">Where I&rsquo;ve been.</h2>
+          <a class="v2-btn" href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&amp;ouid=112848843176912504899&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Full r&eacute;sum&eacute; <span aria-hidden="true">&nearr;</span></a>
+        </div>
+        <ol class="v2-career">
+          <li>
+            <p class="v2-career__d">Mar 2020 to Sep 2026</p>
+            <div><h3 class="v2-career__t">Product Designer &middot; DataRobot</h3><p class="v2-career__s">Enterprise AI platform. Led the design of Workload API end to end, owned the design system (60+ components, light and dark themes) and ran accessibility checks across the platform.</p></div>
+            <p class="v2-career__k">6.5 years</p>
+          </li>
+          <li>
+            <p class="v2-career__d">2013 to 2020</p>
+            <div>
+              <h3 class="v2-career__t">Earlier</h3>
+              <ul class="v2-logos" aria-label="Earlier companies">
+                <li class="v2-logo" style="letter-spacing:-0.01em">intellias</li>
+                <li class="v2-logo" style="font-weight:600; letter-spacing:0.02em">syngenta</li>
+                <li class="v2-logo" style="letter-spacing:0.04em; text-transform:uppercase; font-size:14px">Innovecs</li>
+                <li class="v2-logo" style="font-weight:800; letter-spacing:-0.01em">BidOn Games</li>
+              </ul>
+            </div>
+            <p class="v2-career__k">7 years</p>
+          </li>
+          <li>
+            <p class="v2-career__d">2015</p>
+            <div><h3 class="v2-career__t">Fine Art degree</h3><p class="v2-career__s">The Bohdan Khmelnytsky National University of Cherkasy</p></div>
+            <p class="v2-career__k"></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="v2-sec v2-sec--soft" aria-labelledby="clock-title">
+      <div class="wrap v2-split">
+        <div>
+          <p class="v2-eyebrow">Off the clock</p>
+          <h2 class="v2-h2" id="clock-title">I still draw by hand.</h2>
+          <p class="v2-sub" style="color:#555; line-height:1.8; margin-top:18px">I&rsquo;m an owner of a wonderful Akita-inu dog, working and training her with pleasure, teaching her how to be friends with cats and everything around. I enjoy meditation and self-organization techniques that help me stay grounded and focused. And I&rsquo;m an artistic type of person: in my spare time I enjoy drawing.</p>
+        </div>
+        <div class="v2-art">
+          <img src="assets/img/Illustration1.png" alt="Illustration by Anna" loading="lazy">
+          <img src="assets/img/Illustration2.png" alt="Illustration by Anna" loading="lazy">
+          <img src="assets/img/Illustration3.png" alt="Illustration by Anna" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap v2-cta-wrap" style="padding-top:72px" aria-labelledby="cta-title">
+      <div class="v2-cta v2-cta--row">
+        <div>
+          <p class="v2-eyebrow">Available now</p>
+          <h2 class="v2-cta__title" id="cta-title">Let&rsquo;s make something clear together.</h2>
+        </div>
+        <a class="v2-btn v2-btn--dark" href="contact.html">Start a conversation &rarr;</a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <section class="connect" aria-labelledby="connect-title">
-      <div class="wrap">
-        <h2 class="connect__title" id="connect-title">Let&rsquo;s Connect</h2>
-        <p class="connect__text">Feel free to reach out for collaborations or just a friendly hello &#128522;</p>
-        <a class="connect__email" href="mailto:annagorobchyk@gmail.com">annagorobchyk@gmail.com</a>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">
-            Linkedin
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">
-            Medium
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="mailto:annagorobchyk@gmail.com">
-            Email
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&ouid=112848843176912504899&rtpof=true&sd=true" target="_blank" rel="noopener">
-            CV
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-        </div>
+  <footer class="wrap v2-foot">
+      <div class="v2-foot__links">
+        <a href="mailto:annagorobchyk@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">Linkedin</a>
+        <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">Medium</a>
+        <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&amp;ouid=112848843176912504899&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">CV</a>
       </div>
-    </section>
-    <div class="colophon">&copy; 2026 Anna Horobchuk</div>
+      <p class="v2-foot__copy">&copy; 2026 Anna Horobchuk</p>
   </footer>
 
   <button class="to-top" type="button">
@@ -131,5 +173,6 @@
   </button>
 
   <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/v2.js?v=4"></script>
 </body>
 </html>

@@ -4,15 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact — Anna Horobchuk</title>
-  <meta name="description" content="Get in touch with Anna Horobchuk.">
+  <meta name="description" content="Get in touch with Anna Horobchuk about a full-time role, a freelance project or a design system.">
   <script>(function(){try{var q=new URLSearchParams(location.search);if(q.get("theme")==="classic"){localStorage.setItem("ah-theme","classic")}else if(localStorage.getItem("ah-theme")==="neon"){location.replace("neon/"+(location.pathname.split("/").pop()||"index.html")+location.hash)}}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/v2.css?v=6">
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
 </head>
-<body>
+<body class="v2">
 
   <header class="site-nav">
     <div class="wrap site-nav__inner">
@@ -27,85 +28,83 @@
       <nav>
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#work">Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
-        <div class="theme-switch">
-          <div class="theme-switch__pill" role="group" aria-label="Theme">
-            <span class="theme-switch__opt" aria-current="true">Classic theme</span>
-            <a class="theme-switch__opt" href="neon/contact.html" aria-describedby="theme-preview">The way I want it</a>
-          </div>
-          <span class="theme-try" aria-hidden="true">
-            <svg viewBox="0 0 40 34" width="40" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30 C 10 16, 22 8, 34 5"/><path d="M27 2 L35 5 L30 11"/></svg>
-            <span>Try me</span>
-          </span>
-          <a class="theme-preview" id="theme-preview" href="neon/contact.html" tabindex="-1" aria-label="Preview of the theme The way I want it">
-            <span class="theme-preview__box" aria-hidden="true">
-              <img class="theme-preview__img" src="assets/img/theme-preview-classic.webp" alt="" width="640" height="400" decoding="async">
-              <img class="theme-preview__img theme-preview__img--neon" src="assets/img/theme-preview-neon.webp" alt="" width="640" height="400" decoding="async">
-              <span class="theme-preview__scan"></span>
-            </span>
-            <span class="theme-preview__caption" aria-hidden="true">
-              <span>Classic theme <b>&rarr;</b> The way I want it</span>
-              <span class="theme-preview__cta">Click to switch</span>
-            </span>
-          </a>
-        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-head">
+    <section class="v2-contact">
       <div class="wrap">
-        <h1 class="page-head__title">Let&rsquo;s work together.</h1>
-        <div class="prose">
-          <p>
-            Reach out for collaborations, freelance work, speaking, or
-            just a friendly hello.
-          </p>
-          <p>
-            <a class="btn-text" href="mailto:annagorobchyk@gmail.com">annagorobchyk@gmail.com <span aria-hidden="true">&rarr;</span></a>
-          </p>
+        <p class="v2-eyebrow">Contact</p>
+        <h1 class="v2-contact__title">Let&rsquo;s work <span class="accent">together.</span></h1>
+        <p class="v2-contact__lede">Reach out for collaborations, freelance work, speaking, or just a friendly hello. Tell me about the product, the team and the problem.</p>
 
-          <h2>Elsewhere</h2>
-          <p>
-            <a class="btn-text" href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;
-            <a class="btn-text" href="https://www.behance.net/gorobchykasya" target="_blank" rel="noopener">Behance</a> &nbsp;
-            <a class="btn-text" href="https://www.instagram.com/anna_gorobchuk" target="_blank" rel="noopener">Instagram</a>
-          </p>
+        <div class="v2-contact__grid">
+          <form class="v2-form" data-contact-form action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="42516cb1-8be9-4c56-bddc-a7506ce3724c">
+            <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <fieldset>
+              <legend>What&rsquo;s this about?</legend>
+              <div class="v2-topics">
+              <button class="v2-topic" type="button" data-topic="Full-time role" aria-pressed="true">Full-time role</button>
+              <button class="v2-topic" type="button" data-topic="Freelance project" aria-pressed="false">Freelance project</button>
+              <button class="v2-topic" type="button" data-topic="Design system" aria-pressed="false">Design system</button>
+              <button class="v2-topic" type="button" data-topic="Just saying hi" aria-pressed="false">Just saying hi</button>
+              </div>
+            </fieldset>
+            <div class="v2-fields">
+            <div class="v2-field"><label class="v2-label" for="f-name">Name <span class="v2-req" aria-hidden="true">*</span></label><input class="v2-input" id="f-name" name="name" type="text" placeholder="Your name" required aria-describedby="err-name" autocomplete="name"><p class="v2-err" id="err-name" aria-live="polite"></p></div>
+            <div class="v2-field"><label class="v2-label" for="f-email">Email <span class="v2-req" aria-hidden="true">*</span></label><input class="v2-input" id="f-email" name="email" type="email" placeholder="you@company.com" required aria-describedby="err-email" autocomplete="email"><p class="v2-err" id="err-email" aria-live="polite"></p></div>
+            <div class="v2-field"><label class="v2-label" for="f-company">Company</label><input class="v2-input" id="f-company" name="company" type="text" placeholder="Where you work" autocomplete="organization"></div>
+            <div class="v2-field"><label class="v2-label" for="f-extra" data-extra-label>Level</label><input class="v2-input" id="f-extra" name="extra" type="text" placeholder="e.g. Senior Product Designer"></div>
+            <div class="v2-field v2-field--full"><label class="v2-label" for="f-message">Message <span class="v2-req" aria-hidden="true">*</span></label><textarea class="v2-input" id="f-message" name="message" rows="5" placeholder="Tell me about the role, the team and what they&rsquo;re building." required aria-describedby="err-message"></textarea><p class="v2-err" id="err-message" aria-live="polite"></p></div>
+            </div>
+            <div class="v2-form__foot">
+              <p class="v2-form__note" data-form-note aria-live="polite"><span aria-hidden="true">*</span> Required. Your message comes straight to my inbox.</p>
+              <button class="v2-btn v2-btn--p" type="submit">Send message &rarr;</button>
+            </div>
+          </form>
+
+          <div class="v2-side">
+            <div class="v2-card v2-card--dark">
+              <p class="v2-eyebrow">Email</p>
+              <button class="v2-copy" type="button" data-copy="annagorobchyk@gmail.com" aria-describedby="copy-note">
+                <span class="v2-copy__addr">annagorobchyk@gmail.com</span>
+                <span class="v2-copy__icon" aria-hidden="true">&#10697;</span>
+              </button>
+              <p class="v2-copy__note" id="copy-note" data-copy-note role="status">Click the address to copy it</p>
+              <a class="v2-write" href="mailto:annagorobchyk@gmail.com">Write an email <span aria-hidden="true">&nearr;</span></a>
+            </div>
+            <div class="v2-card">
+              <p class="v2-eyebrow">Find me online</p>
+              <ul class="v2-soc">
+                <li><a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&nearr;</span></a></li>
+                <li><a href="https://www.behance.net/gorobchykasya" target="_blank" rel="noopener">Behance <span aria-hidden="true">&nearr;</span></a></li>
+                <li><a href="https://www.instagram.com/anna_gorobchuk" target="_blank" rel="noopener">Instagram <span aria-hidden="true">&nearr;</span></a></li>
+                <li><a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">Medium <span aria-hidden="true">&nearr;</span></a></li>
+              </ul>
+            </div>
+            <div class="v2-card v2-card--soft">
+              <p class="v2-eyebrow">What happens next</p>
+              <ol class="v2-steps">
+                <li><b>1</b><div><strong>You send a note</strong><span>A few lines about the role or project is plenty.</span></div></li>
+                <li><b>2</b><div><strong>I reply within 2 working days</strong><span>With questions and the case studies closest to your problem.</span></div></li>
+                <li><b>3</b><div><strong>Intro call</strong><span>30 minutes on goals, team and timeline.</span></div></li>
+                <li><b>4</b><div><strong>Work walkthrough</strong><span>A deeper look at the work that matches what you need.</span></div></li>
+              </ol>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <section class="connect" aria-labelledby="connect-title">
-      <div class="wrap">
-        <h2 class="connect__title" id="connect-title">Let&rsquo;s Connect</h2>
-        <p class="connect__text">Feel free to reach out for collaborations or just a friendly hello &#128522;</p>
-        <a class="connect__email" href="mailto:annagorobchyk@gmail.com">annagorobchyk@gmail.com</a>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/gorobchykasya894869123/" target="_blank" rel="noopener">
-            Linkedin
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="https://john-moriarty.medium.com/transforming-the-datarobot-ai-platform-user-experience-266eba7eeb93" target="_blank" rel="noopener">
-            Medium
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="mailto:annagorobchyk@gmail.com">
-            Email
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-          <a href="https://docs.google.com/document/d/1HrugMttsGKDypKhnOBtNcFlMc6VNYxfB/edit?usp=sharing&ouid=112848843176912504899&rtpof=true&sd=true" target="_blank" rel="noopener">
-            CV
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-    <div class="colophon">&copy; 2026 Anna Horobchuk</div>
+  <footer class="wrap v2-foot">
+      <p class="v2-foot__copy">&copy; 2026 Anna Horobchuk</p>
   </footer>
 
   <button class="to-top" type="button">
@@ -114,5 +113,6 @@
   </button>
 
   <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/v2.js?v=4"></script>
 </body>
 </html>
