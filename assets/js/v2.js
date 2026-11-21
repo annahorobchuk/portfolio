@@ -107,19 +107,61 @@
     state.raf = requestAnimationFrame(tick);
   }
 
-  // Spring toggle
+  // Small spring integrator for components that run several springs in one loop.
+  var step = function (o, target, k, c, dt, eps) {
+    var a = -k * (o.x - target) - c * o.v;
+    o.v += a * dt; o.x += o.v * dt;
+    if (Math.abs(o.v) < eps * 4 && Math.abs(o.x - target) < eps) { o.x = target; o.v = 0; return false; }
+    return true;
+  };
+  var loop = function (frame) {
+    var raf = 0, last = 0;
+    var tick = function (now) {
+      var dt = Math.min(0.032, Math.max(0.001, (now - last) / 1000)); last = now;
+      raf = frame(dt, now) ? requestAnimationFrame(tick) : 0;
+    };
+    return function () { if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); } };
+  };
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+
+  // Spring toggle: the knob springs across (stiffness 520, damping 22) and, before you
+  // click, leans toward a nearby cursor like a magnet.
   var sw = document.querySelector("[data-spring-switch]");
   if (sw) {
     var knob = sw.querySelector(".v2-switch__knob");
-    var swState = { x: 0, v: 0 };
-    sw.addEventListener("click", function () {
-      var on = sw.getAttribute("aria-checked") !== "true";
-      sw.setAttribute("aria-checked", String(on));
-      spring(swState, on ? 1 : 0, 520, 22, function (x, v) {
-        var squash = 1 + Math.min(0.25, Math.abs(v) / 8);
-        knob.style.transform = "translateX(" + (x * 56).toFixed(2) + "px) scaleX(" + squash.toFixed(3) + ")";
-      });
+    var stage = sw.closest(".v2-stage") || sw.parentNode;
+    var S = { x: { x: 0, v: 0 }, lx: { x: 0, v: 0 }, ly: { x: 0, v: 0 }, pr: { x: 0, v: 0 }, on: false, tx: 0, ty: 0, tp: 0 };
+    var paintSw = function () {
+      knob.style.transform = "translate(" + (S.x.x * 56 + S.lx.x).toFixed(2) + "px," + S.ly.x.toFixed(2) + "px) scale(" + (1 + S.pr.x * 0.07).toFixed(3) + ")";
+      knob.style.setProperty("--hx", (50 + S.lx.x * 3).toFixed(1) + "%");
+      knob.style.setProperty("--hy", (35 + S.ly.x * 3).toFixed(1) + "%");
+      sw.style.setProperty("--lx", S.lx.x.toFixed(2));
+      sw.style.setProperty("--ly", S.ly.x.toFixed(2));
+    };
+    var runSw = loop(function (dt) {
+      var a = step(S.x, S.on ? 1 : 0, 520, 22, dt, 0.0008);
+      var b = step(S.lx, S.tx, 300, 20, dt, 0.01);
+      var c = step(S.ly, S.ty, 300, 20, dt, 0.01);
+      var d = step(S.pr, S.tp, 300, 24, dt, 0.001);
+      paintSw();
+      return a || b || c || d;
     });
+    sw.addEventListener("click", function () {
+      S.on = !S.on;
+      sw.setAttribute("aria-checked", String(S.on));
+      runSw();
+    });
+    if (!reduceMotion) {
+      stage.addEventListener("pointermove", function (e) {
+        if (e.pointerType !== "mouse") return;
+        var r = knob.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        var f = clamp(1 - Math.sqrt(dx * dx + dy * dy) / 150, 0, 1);
+        S.tx = clamp(dx * 0.16, -10, 10) * f; S.ty = clamp(dy * 0.16, -6, 6) * f; S.tp = f > 0 ? 1 : 0;
+        runSw();
+      });
+      stage.addEventListener("pointerleave", function () { S.tx = 0; S.ty = 0; S.tp = 0; runSw(); });
+    }
   }
 
   // Physics card
@@ -167,53 +209,76 @@
     });
   }
 
-  // Tuned slider
-  var slider = document.querySelector("[data-slider]");
-  if (slider) {
-    var fill = slider.querySelector(".v2-slider__fill");
-    var thumb = slider.querySelector(".v2-slider__thumb");
-    var out = document.querySelector("[data-slider-val]");
-    var val = 40, ac = null, bumpT = 0;
-    var beep = function (freq) {
+  // Tuned slider: a value bubble rides above the thumb and swings with your drag speed;
+  // ticks rise as the thumb passes. A short note plays at every step of 10.
+  var bs = document.querySelector("[data-bslider]");
+  if (bs) {
+    var bOut = bs.querySelector("[data-bslider-val]");
+    var bTicks = bs.querySelectorAll(".v2-bslider__ticks i");
+    var B = { val: 40, vs: { x: 40, v: 0 }, tilt: { x: 0, v: 0 }, bsc: { x: 0.88, v: 0 }, ts: { x: 1, v: 0 }, drag: false, tt: 0, lastT: 0, lastV: 40, step10: 4 };
+    var bAc = null;
+    var bBeep = function (freq) {
       try {
         var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
-        ac = ac || new AC();
-        var o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime;
+        bAc = bAc || new AC();
+        var o = bAc.createOscillator(), g = bAc.createGain(), t = bAc.currentTime;
         o.type = "sine"; o.frequency.value = freq;
-        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.12, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-        o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.14);
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.1, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+        o.connect(g); g.connect(bAc.destination); o.start(t); o.stop(t + 0.14);
       } catch (err) { /* no sound available */ }
     };
-    var render = function () {
-      fill.style.width = val + "%";
-      thumb.style.left = val + "%";
-      out.textContent = String(val);
-      slider.setAttribute("aria-valuenow", String(val));
+    var paintB = function () {
+      var p = clamp(B.vs.x, 0, 100), w = bs.clientWidth || 1, px = p / 100 * w;
+      bs.style.setProperty("--p", p.toFixed(2) + "%");
+      bs.style.setProperty("--tilt", B.tilt.x.toFixed(2));
+      bs.style.setProperty("--bs", B.bsc.x.toFixed(3));
+      bs.style.setProperty("--ts", B.ts.x.toFixed(3));
+      bOut.textContent = String(Math.round(p));
+      for (var i = 0; i < bTicks.length; i++) {
+        var tx = i / (bTicks.length - 1) * w;
+        bTicks[i].style.setProperty("--pr", clamp(1 - Math.abs(tx - px) / 50, 0, 1).toFixed(3));
+        bTicks[i].classList.toggle("on", i * 5 <= p + 0.01);
+      }
     };
-    var set = function (v) {
-      v = Math.max(0, Math.min(100, Math.round(v / 10) * 10));
-      if (v === val) return;
-      val = v; render(); beep(220 * Math.pow(2, v / 50));
-      out.classList.add("is-bump"); clearTimeout(bumpT); bumpT = setTimeout(function () { out.classList.remove("is-bump"); }, 140);
+    var runB = loop(function (dt, now) {
+      if (B.drag && now - B.lastT > 60) B.tt = 0;
+      var a = step(B.vs, B.val, 600, 45, dt, 0.01);
+      var b = step(B.tilt, B.tt, 220, 12, dt, 0.01);
+      var c = step(B.bsc, B.drag ? 1.08 : 0.88, 400, 22, dt, 0.001);
+      var d = step(B.ts, B.drag ? 1.18 : 1, 500, 24, dt, 0.001);
+      paintB();
+      return a || b || c || d;
+    });
+    var setVal = function (v) {
+      B.val = clamp(v, 0, 100);
+      var s10 = Math.round(B.val / 10);
+      if (s10 !== B.step10) { B.step10 = s10; bBeep(220 * Math.pow(2, s10 * 10 / 50)); }
+      bs.setAttribute("aria-valuenow", String(Math.round(B.val)));
+      runB();
     };
-    var fromEvent = function (e) { var r = slider.getBoundingClientRect(); if (r.width) set((e.clientX - r.left) / r.width * 100); };
-    var dragging = false;
-    slider.addEventListener("pointerdown", function (e) {
-      dragging = true; slider.classList.add("is-drag");
-      if (slider.setPointerCapture) slider.setPointerCapture(e.pointerId);
-      fromEvent(e);
+    var fromPointer = function (e) {
+      var r = bs.getBoundingClientRect(); if (!r.width) return;
+      var v = clamp((e.clientX - r.left) / r.width * 100, 0, 100), now = performance.now();
+      var vel = (v - B.lastV) / (Math.max(1, now - B.lastT) / 1000);
+      B.tt = reduceMotion ? 0 : clamp(-vel * 0.12, -28, 28);
+      B.lastV = v; B.lastT = now;
+      setVal(v);
+    };
+    bs.addEventListener("pointerdown", function (e) {
+      if (bs.setPointerCapture) bs.setPointerCapture(e.pointerId);
+      B.drag = true; B.lastT = performance.now(); B.lastV = B.val; fromPointer(e);
     });
-    slider.addEventListener("pointermove", function (e) { if (dragging) fromEvent(e); });
-    var stop = function () { dragging = false; slider.classList.remove("is-drag"); };
-    slider.addEventListener("pointerup", stop);
-    slider.addEventListener("pointercancel", stop);
-    slider.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight" || e.key === "ArrowUp") { e.preventDefault(); set(val + 10); }
-      if (e.key === "ArrowLeft" || e.key === "ArrowDown") { e.preventDefault(); set(val - 10); }
-      if (e.key === "Home") { e.preventDefault(); set(0); }
-      if (e.key === "End") { e.preventDefault(); set(100); }
+    bs.addEventListener("pointermove", function (e) { if (B.drag) fromPointer(e); });
+    var bStop = function () { B.drag = false; B.tt = 0; runB(); };
+    bs.addEventListener("pointerup", bStop);
+    bs.addEventListener("pointercancel", bStop);
+    bs.addEventListener("keydown", function (e) {
+      var d = (e.key === "ArrowRight" || e.key === "ArrowUp") ? 1 : (e.key === "ArrowLeft" || e.key === "ArrowDown") ? -1 : 0;
+      if (d) { e.preventDefault(); setVal(Math.round(B.val) + d * (e.shiftKey ? 10 : 1)); if (!reduceMotion) { B.tt = -d * 10; setTimeout(function () { B.tt = 0; runB(); }, 90); } }
+      if (e.key === "Home") { e.preventDefault(); setVal(0); }
+      if (e.key === "End") { e.preventDefault(); setVal(100); }
     });
-    render();
+    paintB();
   }
 
   // ------------------------------------------------------- About: toolkit tabs
