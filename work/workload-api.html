@@ -71,9 +71,9 @@
         <p>The Workload API is a platform that enables teams to deploy, monitor, and manage customer code at scale. Designed the core set of entities and console interface that generalize the experience across different workload types and deployment scenarios.</p>
 
         <h2>The problem</h2>
-        <p>When deploying from source code, the system needs metadata to build a container image: a reference to the uploaded source code, and instructions for how to produce a Dockerfile. This requires capturing multiple, often conditional inputs that vary by build type, creating complexity and confusion in the API design.</p>
+        <p>Deploying from source code means the platform first builds a container image, and what that build needs depends on one question: does the uploaded code include a Dockerfile? If yes, only its path is needed. If not, the system generates one and needs an execution environment, its version and an entrypoint.</p>
 
-        <p>Our solution was to group all build inputs into a single <code>ImageBuildConfig</code> object on the Container entity. The Dockerfile source is modeled as a discriminated union, so each variant carries exactly the fields it needs—eliminating optional parameters and conditional logic that lead to invalid states.</p>
+        <p>Shown as one flat set of options, these conditional fields left users guessing which ones applied and made invalid combinations easy to submit. The goal was to give each path only the inputs it needs, and to default to the most common case, code that brings its own Dockerfile, so the simple case stays simple.</p>
 
         <div class="image-slider">
           <div class="slider-main">
@@ -110,6 +110,8 @@
         <p>Once we had a clear understanding of the problems to be addressed, the PM team started creating 6-pagers and PR/FAQs that described the vision for the redesigned platform. We adopted the <a href="https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes" target="_blank" rel="noopener">working backwards methodology</a> pioneered by Amazon—writing the customer announcement and FAQ before designing the product.</p>
 
         <p>This approach helped everyone on the team, including design, to assess and interrogate the platform's viability, guide development decisions, and maintain a relentless customer-centric focus. Rather than iterating on implementation details, we debated the core value proposition and customer experience first, ensuring alignment before engineering began.</p>
+
+        <p>Our solution was to group all build inputs into a single <code>ImageBuildConfig</code> object on the Container entity. The Dockerfile source is modeled as a discriminated union, so each variant carries exactly the fields it needs—eliminating optional parameters and conditional logic that lead to invalid states.</p>
 
         <p>The design process focused on creating a unified console experience that made complex workload orchestration feel intuitive—providing clear visibility into build status, configuration options, and workload management through a consistent, tab-based interface.</p>
 
