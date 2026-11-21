@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Protected — Anna Horobchuk</title>
   <meta name="description" content="Password-protected case study.">
+  <script>(function(d){var t;try{var q=new URLSearchParams(location.search).get("theme");if(q==="classic"||q==="neon")localStorage.setItem("ah-theme",q);t=localStorage.getItem("ah-theme")}catch(e){}t=t==="neon"?"neon":"classic";if(t==="neon")d.documentElement.classList.add("theme-neon");d.addEventListener("DOMContentLoaded",function(){d.querySelectorAll("[data-theme-opt]").forEach(function(o){if(o.getAttribute("data-theme-opt")===t)o.setAttribute("aria-current","true");else o.removeAttribute("aria-current")})})})(document)</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=8">
+  <link rel="stylesheet" href="../assets/css/style.css?v=13">
   <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
 </head>
 <body class="gate-page">
@@ -63,10 +64,14 @@
           </button>
         </form>
         <p class="gate__error" id="gate-error" role="alert"></p>
+        <a class="gate__back" id="gate-back" href="../index.html#work">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12H4m0 0 6-6m-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </a>
       </div>
     </section>
   </main>
 
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=5"></script>
 </body>
 </html>

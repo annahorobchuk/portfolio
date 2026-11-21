@@ -63,6 +63,7 @@
       event.preventDefault();
 
       if (input.value === GATE_PASSWORD) {
+        try { sessionStorage.setItem("case-study-unlocked", "true"); } catch (e) {}
         window.location.href = target;
         return;
       }
@@ -75,6 +76,15 @@
       input.value = "";
       input.focus();
     });
+
+    // Back: return to the page the visitor came from on this site, else Home.
+    var back = document.getElementById("gate-back");
+    if (back && document.referrer.indexOf(location.origin + "/") === 0 && history.length > 1) {
+      back.addEventListener("click", function (event) {
+        event.preventDefault();
+        history.back();
+      });
+    }
   }
 })();
 

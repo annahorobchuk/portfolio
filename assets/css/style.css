@@ -1077,6 +1077,25 @@ body.gate-page .site-nav { background: rgba(251, 250, 249, 0.9); }
   min-height: 20px;
 }
 
+.gate__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.gate__back svg { width: 16px; height: 16px; }
+
+.gate__back:hover,
+.gate__back:focus-visible { color: var(--accent); background: var(--tint-lavender); }
+
 @keyframes gate-shake {
   0%, 100% { transform: translateX(0); }
   20% { transform: translateX(-8px); }
@@ -1332,6 +1351,24 @@ html.theme-neon {
 @media (max-width: 640px) {
   .theme-neon .nav-links { background: var(--bg-soft); border-color: var(--rule); }
 }
+
+/* Password gate in neon: same layout, dark ground, one pink accent. */
+.theme-neon body.gate-page { background: var(--bg); }
+.theme-neon body.gate-page .site-nav { background: rgba(6, 5, 10, 0.85); }
+.theme-neon .gate__icon { color: #ff4f7b; border-color: rgba(255, 79, 123, 0.35); }
+.theme-neon .gate__form {
+  background: var(--bg-soft);
+  box-shadow: 0 0 0 1px var(--rule);
+  transition: box-shadow 0.2s ease;
+}
+.theme-neon .gate__form:focus-within {
+  box-shadow: 0 0 0 1px rgba(255, 79, 123, 0.6), 0 0 24px -6px rgba(224, 40, 79, 0.45);
+}
+.theme-neon .gate__submit:hover,
+.theme-neon .gate__submit:focus-visible { color: #fff; background: #e0284f; }
+.theme-neon .gate__error { color: #ff7a93; }
+.theme-neon .gate__back:hover,
+.theme-neon .gate__back:focus-visible { color: #ff4f7b; background: rgba(255, 79, 123, 0.1); }
 
 /* ------------------------------------- Theme switch: Try me + preview ----- */
 /* Classic only. A handwritten "Try me" tag and a shimmer on the neon option
