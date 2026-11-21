@@ -96,3 +96,48 @@
   sw.addEventListener("mouseleave", function () { sw.classList.remove("is-closed"); });
   sw.addEventListener("focusout", function () { sw.classList.remove("is-closed"); });
 })();
+
+/* Autoplaying hero videos: respect "reduce motion" by stopping on the first frame */
+(function () {
+  if (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll("video[autoplay]").forEach(function (v) {
+    v.removeAttribute("autoplay");
+    v.pause();
+  });
+})();
+
+/* Image-to-video hero: the image turns into the video and comes back when the video ends.
+   data-hero-player="click" (default): a play button starts it; clicking again stops it early.
+   data-hero-player="hover": it plays while the pointer is over it; on touch screens a tap toggles it. */
+(function () {
+  document.querySelectorAll("[data-hero-player]").forEach(function (box) {
+    var v = box.querySelector("video");
+    if (!v) return;
+    var hover = box.getAttribute("data-hero-player") === "hover";
+    var btn = box.querySelector(".cs-banner__play");
+    var label = btn ? btn.getAttribute("aria-label") : "";
+    var playing = function () { return box.classList.contains("is-playing"); };
+    function reset() {
+      box.classList.remove("is-playing");
+      if (btn) btn.setAttribute("aria-label", label);
+      setTimeout(function () { if (!playing()) { v.pause(); try { v.currentTime = 0; } catch (e) {} } }, 400);
+    }
+    function start() {
+      if (playing()) return;
+      try { v.currentTime = 0; } catch (e) {}
+      var p = v.play();
+      box.classList.add("is-playing");
+      if (btn) btn.setAttribute("aria-label", "Stop the video");
+      if (p && p.catch) p.catch(reset);
+    }
+    v.addEventListener("ended", reset);
+    if (hover) {
+      v.preload = "auto";
+      box.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") start(); });
+      box.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") reset(); });
+      box.addEventListener("pointerup", function (e) { if (e.pointerType !== "mouse") { if (playing()) reset(); else start(); } });
+    } else if (btn) {
+      btn.addEventListener("click", function () { if (playing()) reset(); else start(); });
+    }
+  });
+})();

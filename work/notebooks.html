@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=8">
+  <link rel="stylesheet" href="../assets/css/style.css?v=11">
   <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
 </head>
 <body>
@@ -50,7 +50,13 @@
         <p class="prose" style="color: var(--ink-muted);">
           DataRobot Notebooks: designing a fully hosted, Jupyter-compatible environment for rapid prototyping and exploratory analysis.
         </p>
-        <div class="cs-banner"><img src="../assets/img/notebooks/notebooks-session environment.png" alt="Notebooks session environment interface" style="width: 100%; height: auto; object-fit: cover;"></div>
+        <div class="cs-banner cs-banner--frame cs-banner--butter" data-hero-player="hover">
+          <div class="cs-banner__screen">
+            <!-- Hover to play: the image turns into the video, and returns when the video ends or the pointer leaves -->
+            <img src="../assets/img/notebooks/notebooks-session%20environment.png" alt="Notebooks session environment interface">
+            <video class="cs-banner__video--top-left" src="../assets/video/notebooks.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -123,7 +129,7 @@
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
-  <script src="../assets/js/main.js?v=3"></script>
+  <script src="../assets/js/main.js?v=6"></script>
 
   <script>
     function createSlider(mainImageId, thumbnailsContainerId) {

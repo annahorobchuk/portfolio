@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=8">
+  <link rel="stylesheet" href="../assets/css/style.css?v=11">
   <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
 </head>
 <body>
@@ -50,7 +50,16 @@
         <p class="prose" style="color: var(--ink-muted);">
           A scalable design system that unified UI patterns across product teams.
         </p>
-        <div class="cs-banner"><img src="../assets/img/design-system-all-components.png" alt="All components of the design system" style="width: 100%; height: auto; object-fit: cover;"></div>
+        <div class="cs-banner cs-banner--frame cs-banner--periwinkle" data-hero-player>
+          <div class="cs-banner__screen">
+            <!-- Click to play: the image turns into the video, and returns when the video ends -->
+            <img src="../assets/img/design-system-all-components.png" alt="All components of the design system">
+            <video src="../assets/video/design-system-hero.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
+            <button class="cs-banner__play" type="button" aria-label="Play the design system video">
+              <span class="cs-banner__play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -154,7 +163,7 @@
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
-  <script src="../assets/js/main.js?v=3"></script>
+  <script src="../assets/js/main.js?v=6"></script>
 
   <script>
     const modal = document.getElementById('image-modal');

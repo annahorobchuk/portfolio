@@ -877,6 +877,84 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
+/* Case study hero with a video: tinted 16:10 panel, framed "screen" inside (layout from the reference) */
+.cs-banner--frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 32px;
+  padding: 5%;
+  background: #ebe5fb;
+}
+.cs-banner__screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 880;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  transition: transform .7s cubic-bezier(.4, 0, .2, 1);
+}
+.cs-banner--frame:hover .cs-banner__screen { transform: scale(1.03); }
+.cs-banner__screen video,
+.cs-banner__screen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right top; /* keep the top-right of recordings in view */
+  display: block;
+}
+.cs-banner__screen img { object-position: center top; } /* still images: keep them centred */
+.cs-banner--periwinkle { background: #e3e9fb; } /* Design System tint, same as its Home card */
+.cs-banner--butter { background: #f7efd0; } /* Notebooks tint, same as its Home card */
+.cs-banner__screen video.cs-banner__video--top-left { object-position: left top; } /* recordings whose key content is top-left */
+
+/* Click-to-play hero: image at rest, video on click, back to the image when it ends */
+[data-hero-player] .cs-banner__screen img,
+[data-hero-player] .cs-banner__screen video { transition: opacity .4s ease; }
+[data-hero-player] .cs-banner__screen video { opacity: 0; }
+[data-hero-player].is-playing .cs-banner__screen video { opacity: 1; }
+[data-hero-player].is-playing .cs-banner__screen img { opacity: 0; }
+.cs-banner__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.cs-banner__play:focus-visible { outline: 3px solid #794DE8; outline-offset: -3px; border-radius: 10px; }
+.cs-banner__play-icon {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  color: #794DE8;
+  box-shadow: 0 16px 36px -14px rgba(60, 48, 120, .45);
+  transition: transform .3s ease, opacity .3s ease;
+}
+.cs-banner__play-icon svg { margin-left: 4px; }
+.cs-banner__play:hover .cs-banner__play-icon { transform: scale(1.08); }
+[data-hero-player].is-playing .cs-banner__play-icon { opacity: 0; transform: scale(.8); }
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-player] .cs-banner__screen img,
+  [data-hero-player] .cs-banner__screen video,
+  .cs-banner__play-icon { transition: none; }
+}
+@media (max-width: 640px) { .cs-banner--frame { border-radius: 20px; } }
+@media (prefers-reduced-motion: reduce) {
+  .cs-banner__screen { transition: none; }
+  .cs-banner--frame:hover .cs-banner__screen { transform: none; }
+}
+
 .cs-facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
