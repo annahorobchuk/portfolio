@@ -3,3 +3,6 @@
 
 # Local tool settings
 .claude/
+
+# Local design review pages (not part of the site)
+design-review/
