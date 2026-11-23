@@ -10,31 +10,17 @@
   function each(list, fn) { Array.prototype.forEach.call(list, fn); }
 
   // ------------------------------------------------------------ Start here
-  var goals = document.querySelector("[data-goals]");
-  if (goals) {
-    var goalData = [
-      ["01 · Simplify a complex Agentic AI platform", "Turn tangled, conditional workflows into a few clear building blocks.", "Workload API", "work/workload-api.html"],
-      ["02 · Build a design system", "One set of tokens and components that every product team can use.", "Design System", "work/design-system.html"],
-      ["03 · Design tools for data and AI", "Code-first tools that work alongside automation instead of fighting it.", "Built in Notebooks", "work/notebooks.html"],
-      ["04 · Take design all the way to code", "Designed in Figma, shipped as production code, with nothing lost in handoff.", "OpenCode theme.json", "work/cli-theme/index.html"]
-    ];
-    var chip = goals.querySelector("[data-goal-chip]");
-    var line = goals.querySelector("[data-goal-line]");
-    var link = goals.querySelector("[data-goal-link]");
-    var cards = goals.querySelectorAll("[data-goal]");
-    var showGoal = function (i) {
-      var g = goalData[i];
-      chip.textContent = g[0];
-      line.textContent = g[1];
-      link.textContent = "See it in " + g[2] + " →";
-      link.setAttribute("href", g[3]);
-      each(cards, function (c, j) { c.setAttribute("aria-pressed", String(i === j)); });
+  // Strips: hovering or focusing a goal widens it into the dark panel and draws its picture;
+  // the last one opened stays open. Each strip is a link to its case study.
+  var strips = document.querySelectorAll("[data-strip]");
+  if (strips.length) {
+    var openStrip = function (target) {
+      if (target.classList.contains("is-open")) return;
+      each(strips, function (s) { s.classList.toggle("is-open", s === target); });
     };
-    each(cards, function (card, i) {
-      var pick = function () { showGoal(i); };
-      card.addEventListener("click", pick);
-      card.addEventListener("focus", pick);
-      card.addEventListener("mouseenter", pick);
+    each(strips, function (strip) {
+      strip.addEventListener("mouseenter", function () { openStrip(strip); });
+      strip.addEventListener("focus", function () { openStrip(strip); });
     });
   }
 

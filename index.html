@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Caveat:wght@600&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=8">
-  <link rel="stylesheet" href="assets/css/v2.css?v=16">
+  <link rel="stylesheet" href="assets/css/v2.css?v=17">
   <link rel="icon" href="assets/img/favicon.ico" sizes="any">
 </head>
 <body class="v2">
@@ -93,18 +93,31 @@
         <p class="v2-eyebrow">Start here</p>
         <h2 class="v2-h2" id="start-title">What are you trying to solve?</h2>
         <p class="v2-sub">Pick a goal to see how I&rsquo;d approach it, with real work to back it up.</p>
-        <div class="v2-goals" data-goals>
-          <div class="v2-goals__panel" aria-live="polite">
-            <span class="v2-chip" data-goal-chip>01 &middot; Simplify a complex Agentic AI platform</span>
-            <div>
-              <p class="v2-goals__line" data-goal-line>Turn tangled, conditional workflows into a few clear building blocks.</p>
-              <a class="v2-goals__link" data-goal-link href="work/workload-api.html">See it in Workload API &rarr;</a>
-            </div>
-          </div>
-          <button class="v2-goal" type="button" data-goal aria-pressed="true"><span class="v2-goal__n">01</span><span><span class="v2-goal__t">Simplify a complex Agentic AI platform</span><span class="v2-goal__l">Turn tangled, conditional workflows into a few clear building blocks.</span><span class="v2-goal__k">See it in Workload API &rarr;</span></span></button>
-          <button class="v2-goal" type="button" data-goal aria-pressed="false"><span class="v2-goal__n">02</span><span><span class="v2-goal__t">Build a design system</span><span class="v2-goal__l">One set of tokens and components that every product team can use.</span><span class="v2-goal__k">See it in Design System &rarr;</span></span></button>
-          <button class="v2-goal" type="button" data-goal aria-pressed="false"><span class="v2-goal__n">03</span><span><span class="v2-goal__t">Design tools for data and AI</span><span class="v2-goal__l">Code-first tools that work alongside automation instead of fighting it.</span><span class="v2-goal__k">See it in Built in Notebooks &rarr;</span></span></button>
-          <button class="v2-goal" type="button" data-goal aria-pressed="false"><span class="v2-goal__n">04</span><span><span class="v2-goal__t">Take design all the way to code</span><span class="v2-goal__l">Designed in Figma, shipped as production code, with nothing lost in handoff.</span><span class="v2-goal__k">See it in OpenCode theme.json &rarr;</span></span></button>
+        <div class="v2-strips" data-strips>
+          <a class="v2-strip is-open" href="work/workload-api.html" data-strip>
+            <span class="v2-strip__n">01</span>
+            <svg class="v2-strip__pic" viewBox="0 0 160 120" aria-hidden="true" focusable="false"><path d="M8 60C34 8 52 112 78 58S118 6 152 62M8 72C46 122 66 16 96 70S132 112 152 48" class="f"/><rect x="10" y="42" width="38" height="36" rx="9" class="d" style="--len:150; --dl:.35s"/><rect x="61" y="42" width="38" height="36" rx="9" class="d" style="--len:150; --dl:.5s"/><rect x="112" y="42" width="38" height="36" rx="9" class="d" style="--len:150; --dl:.65s"/><path d="M48 60H61M99 60H112" class="d" style="--len:30; --dl:1s"/></svg>
+            <span class="v2-strip__t">Simplify a complex Agentic AI platform</span>
+            <span class="v2-strip__b"><span class="v2-strip__l">Turn tangled, conditional workflows into a few clear building blocks.</span><span class="v2-strip__k">See it in Workload API &rarr;</span></span>
+          </a>
+          <a class="v2-strip" href="work/design-system.html" data-strip>
+            <span class="v2-strip__n">02</span>
+            <svg class="v2-strip__pic" viewBox="0 0 160 120" aria-hidden="true" focusable="false"><rect x="40" y="14" width="36" height="36" rx="8" class="p" style="--dl:0s"/><circle cx="102" cy="32" r="18" class="p" style="--dl:.12s"/><rect x="40" y="70" width="36" height="36" rx="18" class="p" style="--dl:.24s"/><rect x="84" y="70" width="36" height="36" rx="8" class="p" style="--dl:.36s"/><path d="M30 60H130" class="d" style="--len:100; --dl:.6s"/></svg>
+            <span class="v2-strip__t">Build a design system</span>
+            <span class="v2-strip__b"><span class="v2-strip__l">One set of tokens and components that every product team can use.</span><span class="v2-strip__k">See it in Design System &rarr;</span></span>
+          </a>
+          <a class="v2-strip" href="work/notebooks.html" data-strip>
+            <span class="v2-strip__n">03</span>
+            <svg class="v2-strip__pic" viewBox="0 0 160 120" aria-hidden="true" focusable="false"><path d="M50 36L28 60L50 84M110 36L132 60L110 84M90 30L70 90" class="d" style="--len:230; --dl:0s"/><path d="M138 8c.8 5.2 3.4 7.8 8.6 8.6-5.2.8-7.8 3.4-8.6 8.6-.8-5.2-3.4-7.8-8.6-8.6 5.2-.8 7.8-3.4 8.6-8.6z" class="p" style="--dl:.7s"/><circle cx="64" cy="108" r="3" class="p" style="--dl:.9s"/><circle cx="80" cy="108" r="3" class="p" style="--dl:1s"/><circle cx="96" cy="108" r="3" class="p" style="--dl:1.1s"/></svg>
+            <span class="v2-strip__t">Design tools for data and AI</span>
+            <span class="v2-strip__b"><span class="v2-strip__l">Code-first tools that work alongside automation instead of fighting it.</span><span class="v2-strip__k">See it in Built in Notebooks &rarr;</span></span>
+          </a>
+          <a class="v2-strip" href="work/cli-theme/index.html" data-strip>
+            <span class="v2-strip__n">04</span>
+            <svg class="v2-strip__pic" viewBox="0 0 160 120" aria-hidden="true" focusable="false"><rect x="10" y="30" width="62" height="60" rx="8" class="d" style="--len:250; --dl:0s"/><path d="M30 48l20 8-8.5 3 6 9.5-4.2 2.4-6-9.5-7.3 5.6z" class="p" style="--dl:.45s"/><path d="M82 60H110M102 52L110 60L102 68" class="d" style="--len:50; --dl:.7s"/><path d="M130 34q-8 0-8 8v8q0 10-6 10q6 0 6 10v8q0 8 8 8" class="d" style="--len:80; --dl:.95s"/><path d="M140 34q8 0 8 8v8q0 10 6 10q-6 0-6 10v8q0 8-8 8" class="d" style="--len:80; --dl:1.05s"/></svg>
+            <span class="v2-strip__t">Take design all the way to code</span>
+            <span class="v2-strip__b"><span class="v2-strip__l">Designed in Figma, shipped as production code, with nothing lost in handoff.</span><span class="v2-strip__k">See it in OpenCode theme.json &rarr;</span></span>
+          </a>
         </div>
       </div>
     </section>
@@ -387,6 +400,6 @@
   </button>
 
   <script src="assets/js/main.js?v=3"></script>
-  <script src="assets/js/v2.js?v=5"></script>
+  <script src="assets/js/v2.js?v=6"></script>
 </body>
 </html>
