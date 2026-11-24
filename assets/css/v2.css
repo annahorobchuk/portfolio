@@ -343,6 +343,14 @@
 .v2-glance__line { margin-top: 16px; font-size: 14px; line-height: 1.7; color: #555; }
 .v2-glance__line b { font-weight: 600; color: var(--v2-ink); }
 .v2-glance__status { white-space: nowrap; }
+/* About: photo with the At a glance card overlapping its bottom, as on Home. */
+.v2-glance__photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 28%; border-radius: 24px; background: var(--v2-lav); }
+.v2-glance--photo .v2-glance__card {
+  position: relative; margin: -120px 14px 0; padding: 20px 22px 18px; border-radius: 20px; background: #fff;
+  box-shadow: 0 24px 48px -22px rgba(43, 43, 43, .35), 0 0 0 1px var(--v2-line);
+}
+.v2-glance--photo .v2-stat { border: 0; box-shadow: none; background: var(--v2-lav); padding: 16px 16px 14px; }
+.v2-glance--photo .v2-stat--acc { background: var(--accent); }
 .v2-glance__status .v2-dot { margin-right: 6px; }
 .v2-dot { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: #3fcf8e; vertical-align: middle; }
 
