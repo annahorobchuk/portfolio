@@ -218,6 +218,36 @@
   .oc-sidebar .card .cf .cmd { color: var(--muted); }
   .oc-sidebar .ver { margin-top: 14px; color: var(--muted); }
   .oc-sidebar .ver .on { color: var(--green); }
+
+  /* ---- theme switch demo: /themes → picker → datarobot (colors scoped to #termApp) ---- */
+  .term-head .kc { margin-left: auto; font-size: 11px; color: var(--fg); background: var(--element); border: 1px solid var(--border-active); border-radius: 4px; padding: 2px 9px; opacity: 0; transition: opacity .25s; }
+  .term-head .kc.on { opacity: 1; }
+  .term-head .kc + .replay { margin-left: 0; }
+  .term-body { position: relative; transition: opacity .3s; }
+  .term-body.is-fading { opacity: 0; }
+  .oc-input { position: relative; }
+  .oc-input .box { flex-direction: column; align-items: stretch; gap: 6px; }
+  .oc-input .irow { display: flex; align-items: center; min-height: 20px; white-space: pre; }
+  .oc-input .srow { display: flex; align-items: center; gap: 8px; }
+  .oc-car { display: inline-block; width: 8px; height: 16px; background: var(--fg); animation: blink 1s steps(1) infinite; }
+  .oc-ac { position: absolute; left: 16px; right: 16px; bottom: 100%; margin-bottom: 4px; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 6px 0; font-size: 13px; box-shadow: 0 18px 40px -18px rgba(0,0,0,.6); }
+  .oc-ac[hidden], .oc-ov[hidden] { display: none; }
+  .oc-ac .r { display: flex; gap: 18px; padding: 2px 14px; line-height: 20px; }
+  .oc-ac .r .cn { width: 120px; flex: none; }
+  .oc-ac .r .cd { color: var(--muted); }
+  .oc-ac .r.sel, .oc-dlg .r.sel { background: var(--primary); }
+  .oc-ac .r.sel, .oc-ac .r.sel .cd, .oc-dlg .r.sel { color: var(--bg); }
+  .oc-ov { position: absolute; inset: 0; background: rgba(0,0,0,.59); font-size: 13px; z-index: 2; }
+  .oc-dlg { position: absolute; left: 50%; top: 120px; width: min(500px, calc(100% - 32px)); transform: translateX(-50%); background: var(--panel); padding: 20px 0; border-radius: 2px; }
+  .oc-dlg .dh { display: flex; justify-content: space-between; padding: 0 32px; line-height: 20px; }
+  .oc-dlg .dh b { font-weight: 700; }
+  .oc-dlg .ds { display: flex; align-items: center; padding: 0 32px; margin: 20px 0 10px; line-height: 20px; min-height: 20px; white-space: pre; }
+  .oc-dlg .mut { color: var(--muted); }
+  .oc-dlg .r { margin: 0 8px; padding: 0 24px; line-height: 20px; white-space: pre; }
+  .term-head .kc, .term-head .replay { white-space: nowrap; flex: none; }
+  .oc-input .srow { white-space: nowrap; }
+  @media (max-width: 560px) { .oc-input .box .time { display: none; } }
+  @media (max-width: 820px) { .oc-sidebar { display: none; } .oc-dlg { top: 80px; } .oc-dlg .dh, .oc-dlg .ds { padding: 0 20px; } .oc-dlg .r { padding: 0 12px; } }
 </style>
 
 <!-- ================= OPENCODE CLI PREVIEW ================= -->
@@ -225,21 +255,26 @@
   <div class="wrap">
     <div class="sec-label reveal">live preview</div>
     <h2 class="reveal">The <span class="accent">OpenCode</span> CLI preview — <span style="color: var(--muted); font-weight: 400;">my-theme.json</span></h2>
-    <p class="sec-intro reveal" style="margin-bottom: 30px;">A complete dual-mode color theme for the OpenCode CLI — designed in Figma, shipped as production JSON. Not a screenshot, a replay: queries type themselves, the agent thinks, markdown and syntax-highlighted code stream in. Scroll inside it like the real app.</p>
+    <p class="sec-intro reveal" style="margin-bottom: 30px;">A complete dual-mode color theme for the OpenCode CLI — designed in Figma, shipped as production JSON. Not a screenshot, a replay: OpenCode opens on its default theme, <span class="inline-code">/themes</span> opens the picker, and typing “data” switches the window to this theme. Scroll inside it like the real app.</p>
 
     <div class="term reveal" id="termApp">
       <div class="term-head">
         <span class="tdot t1"></span><span class="tdot t2"></span><span class="tdot t3"></span>
         <span class="ttl">anna — OC | REST API overview — opencode — 80×24</span>
+        <span class="kc" id="ocKey" aria-hidden="true"></span>
         <button class="replay" id="replayBtn">↺ replay</button>
       </div>
-      <div class="term-body">
+      <div class="term-body" id="termBody">
         <div class="term-main-col">
           <div class="term-scroll" id="termScroll">
             <div id="termFeed"></div>
           </div>
           <div class="oc-input">
-            <div class="box"><span class="sq">■</span> Build <span class="sep">·</span> Big Pickle <span class="sep">·</span> <span id="buildTime">0.0s</span><span class="time">0.5k (4%) ctrl+g commands</span></div>
+            <div class="oc-ac" id="ocAc" hidden aria-hidden="true"></div>
+            <div class="box">
+              <div class="irow"><span id="ocInput"></span><span class="oc-car" aria-hidden="true"></span></div>
+              <div class="srow"><span class="sq">■</span> Build <span class="sep">·</span> Big Pickle <span class="sep">·</span> <span id="buildTime">15.0s</span><span class="time">0.5k (4%) ctrl+g commands</span></div>
+            </div>
           </div>
         </div>
         <aside class="oc-sidebar">
@@ -254,6 +289,13 @@
           </div>
           <div class="ver"><span class="on">●</span> Open<b>Code</b> 1.16.2</div>
         </aside>
+        <div class="oc-ov" id="ocOv" hidden aria-hidden="true">
+          <div class="oc-dlg">
+            <div class="dh"><b>Themes</b><span class="mut">esc</span></div>
+            <div class="ds"><span id="ocSearch"></span><span class="oc-car"></span><span class="mut" id="ocPh">Search</span></div>
+            <div id="ocRows"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -668,7 +710,6 @@ const scroller = document.getElementById('termScroll');
 const buildTime = document.getElementById('buildTime');
 const tokCount = document.getElementById('tokCount');
 const ctxBar = document.getElementById('ctxBar');
-let playRun = 0;
 
 const CODE1 = `<span class="ln">1</span><span class="k">import</span> <span class="v">requests</span>
 <span class="ln">2</span>
@@ -710,55 +751,120 @@ const STEPS = [
   { t: 'html', html: '<p class="md-p" style="color: var(--muted)">Would you like me to write this to a file?</p>' }
 ];
 
-const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const autoscroll = () => { scroller.scrollTop = scroller.scrollHeight; };
 
-async function typeQuery(text, run) {
-  const q = document.createElement('div');
-  q.className = 'query oc-step on';
-  const span = document.createElement('span');
-  const cur = document.createElement('span'); cur.className = 'qcur';
-  q.appendChild(span); q.appendChild(cur);
-  feed.appendChild(q); autoscroll();
-  if (REDUCED) { span.textContent = text; cur.remove(); return; }
-  for (let i = 0; i < text.length; i++) {
-    if (run !== playRun) return;
-    span.textContent += text[i];
-    if (i % 4 === 0) autoscroll();
-    await sleep(text.length > 80 ? 14 : 22);
+/* The conversation is already on screen; the demo is the theme switch.
+   OpenCode opens on its default theme, "/themes" is typed into the input, the picker opens,
+   typing "data" filters it (the first match previews live, as in OpenCode) and enter applies datarobot.
+   Theme colors are set on #termApp only; datarobot clears them so the window uses this page's tokens. */
+const termApp = document.getElementById('termApp');
+const termBody = document.getElementById('termBody');
+const ocInput = document.getElementById('ocInput');
+const ocAc = document.getElementById('ocAc');
+const ocOv = document.getElementById('ocOv');
+const ocSearch = document.getElementById('ocSearch');
+const ocPh = document.getElementById('ocPh');
+const ocRows = document.getElementById('ocRows');
+const ocKey = document.getElementById('ocKey');
+
+function renderFeed() {
+  feed.innerHTML = STEPS.map(s =>
+    s.t === 'query' ? '<div class="query">' + s.text + '</div>' :
+    s.t === 'thought' ? '<div class="thought"><span class="plus">+</span> Thought:263ms</div>' : s.html
+  ).join('');
+  tokCount.textContent = (8468).toLocaleString();
+  buildTime.textContent = '15.0s';
+  ctxBar.style.width = '100%';
+  requestAnimationFrame(autoscroll);
+}
+
+// OpenCode's built-in themes plus datarobot, sorted the way the picker sorts them
+const OC_THEMES = ['aura','ayu','carbonfox','catppuccin','catppuccin-frappe','catppuccin-macchiato','cobalt2','cursor','datarobot','dracula','everforest','flexoki','github','gruvbox','kanagawa','lucent-orng','material','matrix','mercury','monokai','nightowl','nord','one-dark','opencode','orng','osaka-jade','palenight','rosepine','solarized','synthwave84','tokyonight','vercel','vesper','zenburn'];
+const OC_CMDS = [['sessions','Switch session'],['new','New session'],['clear','Clear session'],['open','Open session or project'],['models','Switch model'],['agents','Switch agent'],['usage','View usage'],['mcps','MCP servers'],['variants','Switch model variant'],['speed','Switch model speed'],['connect','Connect an integration'],['highlights','Show release highlights'],['settings','Open settings'],['status','View status'],['update','Update OpenCode'],['pair','Pair device'],['restart','Restart service'],['reload','Reload configuration'],['debug','View debug info'],['themes','Switch theme'],['help','Help'],['exit','Exit the app']];
+// OpenCode's default theme (packages/tui theme/assets/opencode.json), mapped onto this page's tokens
+const OC_DEFAULT = {
+  dark:  { bg:'#0a0a0a', panel:'#141414', element:'#1e1e1e', fg:'#eeeeee', muted:'#808080', border:'#484848', 'border-active':'#606060', primary:'#fab283', heading:'#9d7cd8', code:'#7fd88f', teal:'#e5c07b', 'syn-keyword':'#9d7cd8', 'syn-string':'#7fd88f', 'syn-function':'#fab283', 'syn-orange':'#fab283', 'syn-number':'#f5a742', 'syn-comment':'#808080', 'syn-blue':'#56b6c2', red:'#e06c75', yellow:'#f5a742', green:'#7fd88f', turquoise:'#9d7cd8', glow:'250, 178, 131' },
+  light: { bg:'#ffffff', panel:'#fafafa', element:'#f5f5f5', fg:'#1a1a1a', muted:'#8a8a8a', border:'#b8b8b8', 'border-active':'#a0a0a0', primary:'#3b7dd8', heading:'#d68c27', code:'#3d9a57', teal:'#b0851f', 'syn-keyword':'#d68c27', 'syn-string':'#3d9a57', 'syn-function':'#3b7dd8', 'syn-orange':'#3b7dd8', 'syn-number':'#d68c27', 'syn-comment':'#8a8a8a', 'syn-blue':'#318795', red:'#d1383d', yellow:'#d68c27', green:'#3d9a57', turquoise:'#d68c27', glow:'59, 125, 216' }
+};
+
+const ocSub = (q, s) => { let i = 0; for (let j = 0; j < s.length && i < q.length; j++) if (s[j] === q[i]) i++; return i === q.length; };
+function ocFilter(q) {
+  if (!q) return OC_THEMES.slice();
+  const m = OC_THEMES.filter(x => ocSub(q, x));
+  return m.filter(x => x.indexOf(q) === 0).concat(m.filter(x => x.indexOf(q) > 0), m.filter(x => x.indexOf(q) < 0));
+}
+
+// timeline, in seconds
+const T = { typeAt: 1.0, ch: 0.11, word: '/themes', qch: 0.26, q: 'data', hold: 6 };
+T.open = T.typeAt + T.word.length * T.ch + 0.5;
+T.qAt = T.open + 0.8;
+T.pick = T.qAt + T.q.length * T.qch + 1.0;
+T.end = T.pick + T.hold;
+
+function ocFrame(t) {
+  const f = { theme: 'opencode', input: '', dialog: false, search: '', list: null, sel: 0, key: '', fade: false };
+  if (t >= T.typeAt) f.input = T.word.slice(0, Math.min(T.word.length, Math.floor((t - T.typeAt) / T.ch) + 1));
+  if (t >= T.open) { f.input = ''; f.dialog = true; f.list = OC_THEMES; f.sel = OC_THEMES.indexOf('opencode'); if (t - T.open < 0.5) f.key = 'enter'; }
+  if (t >= T.qAt) { f.search = T.q.slice(0, Math.min(T.q.length, Math.floor((t - T.qAt) / T.qch) + 1)); f.list = ocFilter(f.search); f.sel = 0; }
+  if (f.dialog) f.theme = f.list[f.sel];
+  if (t >= T.pick) { f.dialog = false; f.theme = 'datarobot'; f.search = ''; f.key = t - T.pick < 0.5 ? 'enter' : ''; }
+  if (t > T.end - 0.35) f.fade = true;
+  return f;
+}
+
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+let ocLast = {};
+function ocApplyTheme(name) {
+  const mode = htmlEl.getAttribute('data-mode') === 'light' ? 'light' : 'dark';
+  const vars = name === 'datarobot' ? null : OC_DEFAULT[mode];
+  Object.keys(OC_DEFAULT.dark).forEach(k => {
+    if (vars) termApp.style.setProperty('--' + k, vars[k]); else termApp.style.removeProperty('--' + k);
+  });
+}
+function ocRender(f) {
+  const L = ocLast;
+  if (f.theme !== L.theme || L.mode !== htmlEl.getAttribute('data-mode')) ocApplyTheme(f.theme);
+  if (f.input !== L.input) {
+    ocInput.textContent = f.input;
+    const q = f.input.charAt(0) === '/' ? f.input.slice(1) : null;
+    const cm = q === null ? [] : OC_CMDS.filter(x => ocSub(q, x[0])).slice(0, 6);
+    ocAc.hidden = !cm.length;
+    ocAc.innerHTML = cm.map((x, i) => '<div class="r' + (i ? '' : ' sel') + '"><span class="cn">/' + x[0] + '</span><span class="cd">' + esc(x[1]) + '</span></div>').join('');
   }
-  cur.remove(); autoscroll();
-}
-
-function addBlock(html) {
-  const d = document.createElement('div');
-  d.className = 'oc-step'; d.innerHTML = html;
-  feed.appendChild(d);
-  requestAnimationFrame(() => { d.classList.add('on'); autoscroll(); });
-}
-
-async function playDemo() {
-  const run = ++playRun;
-  feed.innerHTML = '';
-  let tokens = 0, secs = 0;
-  const tokTimer = setInterval(() => {
-    if (run !== playRun) { clearInterval(tokTimer); return; }
-    tokens = Math.min(tokens + 137, 8468); secs += .2;
-    tokCount.textContent = tokens.toLocaleString();
-    buildTime.textContent = Math.min(secs, 15).toFixed(1) + 's';
-    ctxBar.style.width = (tokens / 8468 * 100) + '%';
-    if (tokens >= 8468 && secs >= 15) clearInterval(tokTimer);
-  }, 200);
-  await sleep(400);
-  for (const step of STEPS) {
-    if (run !== playRun) return;
-    if (step.t === 'query') { await typeQuery(step.text, run); await sleep(350); }
-    else if (step.t === 'thought') { addBlock('<div class="thought"><span class="plus">+</span> Thought:263ms</div>'); await sleep(650); }
-    else { addBlock(step.html); await sleep(REDUCED ? 60 : 850); }
+  if (f.dialog !== L.dialog) ocOv.hidden = !f.dialog;
+  if (f.dialog && (f.search !== L.search || !L.dialog)) {
+    ocSearch.textContent = f.search;
+    ocPh.textContent = f.search ? '' : 'Search';
+    const N = 8, list = f.list, n = list.length;
+    const start = f.search ? 0 : Math.max(0, Math.min(n - N, f.sel - Math.floor(N / 2)));
+    let h = '';
+    for (let i = start; i < Math.min(n, start + N); i++) h += '<div class="r' + (i === f.sel ? ' sel' : '') + '">' + list[i] + '</div>';
+    ocRows.innerHTML = h;
   }
+  if (f.key !== L.key) { if (f.key) ocKey.textContent = f.key; ocKey.classList.toggle('on', !!f.key); }
+  if (f.fade !== L.fade) termBody.classList.toggle('is-fading', f.fade);
+  ocLast = Object.assign({}, f, { mode: htmlEl.getAttribute('data-mode') });
 }
 
-ScrollTrigger.create({ trigger: '#termApp', start: 'top 75%', once: true, onEnter: playDemo });
+// The clock only runs while the window is on screen, so the switch is never missed.
+let ocT = 0, ocPrev = 0, ocRaf = 0, ocVisible = false, ocStarted = false, ocLoop = !REDUCED;
+function ocTick(now) {
+  ocRaf = 0;
+  if (!ocVisible) return;
+  ocT += Math.min(0.1, (now - (ocPrev || now)) / 1000); ocPrev = now;
+  if (ocT >= T.end) { if (ocLoop) ocT %= T.end; else { ocRender(ocFrame(T.pick + 1)); return; } }
+  ocRender(ocFrame(ocT));
+  ocRaf = requestAnimationFrame(ocTick);
+}
+function ocResume() { if (!ocRaf && ocVisible && ocStarted) { ocPrev = 0; ocRaf = requestAnimationFrame(ocTick); } }
+function playDemo() { ocStarted = true; ocT = 0; ocLast = {}; ocResume(); }
+
+renderFeed();
+if (REDUCED) ocRender(ocFrame(T.pick + 1));   // reduced motion: the finished datarobot state, replay plays it once
+else ocRender(ocFrame(0));
+new IntersectionObserver(es => { ocVisible = es[0].isIntersecting; if (ocVisible) ocResume(); }, { threshold: 0.25 }).observe(termApp);
+document.getElementById('modeToggle').addEventListener('click', () => { if (ocLast.theme) { ocApplyTheme(ocLast.theme); ocLast.mode = htmlEl.getAttribute('data-mode'); } });
+if (!REDUCED) ScrollTrigger.create({ trigger: '#termApp', start: 'top 75%', once: true, onEnter: playDemo });
 document.getElementById('replayBtn').addEventListener('click', playDemo);
 gsap.fromTo('#termApp', { rotationX: 6, transformPerspective: 1200, transformOrigin: '50% 0%' }, { rotationX: 0, ease: 'none', scrollTrigger: { trigger: '#termApp', start: 'top 90%', end: 'top 35%', scrub: true } });
 
