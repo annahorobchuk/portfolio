@@ -427,3 +427,117 @@
     card.addEventListener("blur", stop);
   });
 })();
+
+/* OpenCode card: on hover or focus the terminal replays the theme switch from the case study.
+   OpenCode opens on its default theme, "/themes" is typed, the picker opens, typing "data" previews
+   datarobot (the first match) and enter applies it. It loops while hovered; at rest it shows datarobot. */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var el = document.querySelector("[data-oc-demo]");
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  if (!el || reduce || touch) return;
+  var card = el.closest(".v2-card") || el;
+  var $ = function (s) { return el.querySelector(s); };
+  var key = $(".oc-mini__key"), text = $(".oc-mini__text"), ac = $(".oc-mini__ac"), ov = $(".oc-mini__ov"),
+      q = $(".oc-mini__q"), ph = $(".oc-mini__ph"), rows = $(".oc-mini__rows");
+
+  var THEMES = ["aura","ayu","carbonfox","catppuccin","catppuccin-frappe","catppuccin-macchiato","cobalt2","cursor","datarobot","dracula","everforest","flexoki","github","gruvbox","kanagawa","lucent-orng","material","matrix","mercury","monokai","nightowl","nord","one-dark","opencode","orng","osaka-jade","palenight","rosepine","solarized","synthwave84","tokyonight","vercel","vesper","zenburn"];
+  var CMDS = [["sessions","Switch session"],["new","New session"],["clear","Clear session"],["open","Open session or project"],["models","Switch model"],["agents","Switch agent"],["usage","View usage"],["mcps","MCP servers"],["variants","Switch model variant"],["speed","Switch model speed"],["connect","Connect an integration"],["highlights","Show release highlights"],["settings","Open settings"],["status","View status"],["update","Update OpenCode"],["pair","Pair device"],["restart","Restart service"],["reload","Reload configuration"],["debug","View debug info"],["themes","Switch theme"],["help","Help"],["exit","Exit the app"]];
+  // OpenCode's default theme (dark); datarobot is the stylesheet default
+  var OPENCODE = { bg: "#0a0a0a", panel: "#141414", element: "#1e1e1e", fg: "#eeeeee", muted: "#808080", border: "#484848", "border-a": "#606060", primary: "#fab283", heading: "#9d7cd8", kw: "#9d7cd8", fn: "#fab283", str: "#7fd88f" };
+
+  var sub = function (a, s) { var i = 0; for (var j = 0; j < s.length && i < a.length; j++) if (s[j] === a[i]) i++; return i === a.length; };
+  var filter = function (s) {
+    if (!s) return THEMES.slice();
+    var m = THEMES.filter(function (x) { return sub(s, x); });
+    return m.filter(function (x) { return x.indexOf(s) === 0; })
+      .concat(m.filter(function (x) { return x.indexOf(s) > 0; }), m.filter(function (x) { return x.indexOf(s) < 0; }));
+  };
+
+  // timeline (seconds), same steps as the case study demo: the default theme stays while picking,
+  // enter on datarobot flashes the row, then the DataRobot colors sweep down and a toast confirms it
+  var T = { typeAt: 0.5, ch: 0.11, word: "/themes", q: "data", qch: 0.26, wipe: 0.8, hold: 4.5 };
+  T.open = T.typeAt + T.word.length * T.ch + 0.5;
+  T.qAt = T.open + 0.8;
+  T.pick = T.qAt + T.q.length * T.qch + 0.9;
+  T.press = T.pick - 0.4;
+  T.toastAt = T.pick + T.wipe;
+  T.toastEnd = T.toastAt + 2.4;
+  T.end = T.pick + T.hold;
+  var REST = T.toastEnd + 0.1; // the datarobot end state
+
+  function frame(t) {
+    var f = { theme: "opencode", input: "", dialog: false, search: "", list: null, sel: 0, key: "", flash: false, wipe: -1, toast: false, fade: false };
+    if (t >= T.typeAt) f.input = T.word.slice(0, Math.min(T.word.length, Math.floor((t - T.typeAt) / T.ch) + 1));
+    if (t >= T.open) { f.input = ""; f.dialog = true; f.list = THEMES; f.sel = THEMES.indexOf("opencode"); if (t - T.open < 0.5) f.key = "enter"; }
+    if (t >= T.qAt) { f.search = T.q.slice(0, Math.min(T.q.length, Math.floor((t - T.qAt) / T.qch) + 1)); f.list = filter(f.search); f.sel = 0; }
+    if (t >= T.press && t < T.pick) { f.key = "enter"; f.flash = Math.floor((t - T.press) / 0.1) % 2 === 1; }
+    if (t >= T.pick) {
+      f.dialog = false; f.search = "";
+      var w = (t - T.pick) / T.wipe;
+      if (w < 1) { f.wipe = w; f.key = "enter"; } else f.theme = "datarobot";
+    }
+    if (t >= T.toastAt && t < T.toastEnd) f.toast = true;
+    if (t > T.end - 0.3) f.fade = true;
+    return f;
+  }
+
+  // the sweep: a copy of the terminal in the DataRobot colors (the stylesheet defaults), revealed top to bottom
+  var toast = $(".oc-mini__toast"), wipeEl = null, line = null;
+  function wipeStart() {
+    wipeEl = document.createElement("div");
+    wipeEl.className = "oc-mini__wipe";
+    [".term-mock__bar", ".term-mock__body", ".oc-mini__in"].forEach(function (s) { wipeEl.appendChild($(s).cloneNode(true)); });
+    line = document.createElement("div");
+    line.className = "oc-mini__line";
+    el.appendChild(wipeEl); el.appendChild(line);
+  }
+  function wipeEnd() { if (wipeEl) { wipeEl.remove(); line.remove(); wipeEl = line = null; } }
+
+  var last = {};
+  function render(f) {
+    if (f.theme !== last.theme) Object.keys(OPENCODE).forEach(function (k) {
+      if (f.theme === "datarobot") el.style.removeProperty("--" + k); else el.style.setProperty("--" + k, OPENCODE[k]);
+    });
+    if (f.input !== last.input) {
+      text.textContent = f.input;
+      var c = f.input.charAt(0) === "/" ? f.input.slice(1) : null;
+      var cm = c === null ? [] : CMDS.filter(function (x) { return sub(c, x[0]); }).slice(0, 3);
+      ac.hidden = !cm.length;
+      ac.innerHTML = cm.map(function (x, i) { return '<div' + (i ? "" : ' class="is-sel"') + '><span>/' + x[0] + '</span><span class="t-mut">' + x[1] + "</span></div>"; }).join("");
+    }
+    if (f.dialog !== last.dialog) ov.hidden = !f.dialog;
+    if (f.dialog && (f.search !== last.search || !last.dialog || f.flash !== last.flash)) {
+      q.textContent = f.search; ph.textContent = f.search ? "" : "Search";
+      var N = 5, n = f.list.length, s = f.search ? 0 : Math.max(0, Math.min(n - N, f.sel - 2)), h = "";
+      for (var i = s; i < Math.min(n, s + N); i++) h += "<div" + (i === f.sel ? (f.flash ? ' class="is-sel is-flash"' : ' class="is-sel"') : "") + ">" + f.list[i] + "</div>";
+      rows.innerHTML = h;
+    }
+    if (f.key !== last.key) { if (f.key) key.textContent = f.key; key.classList.toggle("is-on", !!f.key); }
+    if (f.wipe >= 0) {
+      if (!wipeEl) wipeStart();
+      var w = f.wipe, e = w < .5 ? 2 * w * w : 1 - Math.pow(-2 * w + 2, 2) / 2;
+      wipeEl.style.clipPath = "inset(0 0 " + ((1 - e) * 100).toFixed(2) + "% 0)";
+      line.style.top = (e * 100).toFixed(2) + "%";
+    } else wipeEnd();
+    if (f.toast !== last.toast) toast.classList.toggle("is-on", f.toast);
+    if (f.fade !== last.fade) el.classList.toggle("is-fading", f.fade);
+    last = f;
+  }
+
+  var t = 0, prev = 0, raf = 0;
+  function tick(now) {
+    t += Math.min(0.1, (now - (prev || now)) / 1000); prev = now;
+    if (t >= T.end) t %= T.end;
+    render(frame(t));
+    raf = requestAnimationFrame(tick);
+  }
+  function start() { if (raf) return; t = 0; prev = 0; last = {}; raf = requestAnimationFrame(tick); }
+  function stop() { cancelAnimationFrame(raf); raf = 0; render(frame(REST)); }
+
+  render(frame(REST));
+  card.addEventListener("mouseenter", start);
+  card.addEventListener("focus", start);
+  card.addEventListener("mouseleave", stop);
+  card.addEventListener("blur", stop);
+})();

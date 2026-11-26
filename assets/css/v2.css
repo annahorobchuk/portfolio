@@ -279,6 +279,46 @@
 .v2-card__screen video.v2-card__video--top-left { object-position: left top; } /* recordings whose key content is top-left */
 .v2-card__screen img.v2-card__contain { object-fit: contain; object-position: center; padding: 6%; box-sizing: border-box; background: #fff; }
 .v2-card__term { position: absolute; inset: 0; background: #1d2126; padding: 18px 18px 0; }
+
+/* OpenCode card: the terminal replays the theme switch on hover (assets/js/v2.js).
+   Colors are variables; the defaults are the shipped DataRobot theme, the script swaps in OpenCode's default theme. */
+.oc-mini, .oc-mini__wipe { --bg: #22272b; --panel: #181d21; --element: #3e454d; --fg: #e8ebed; --muted: #8f97a1; --border: #2a3036; --border-a: #3e454d; --primary: #909bf5; --heading: #909bf5; --kw: #61bfc5; --fn: #eda769; --str: #61bfc5; }
+.oc-mini { display: flex; flex-direction: column; position: relative; background: var(--bg); border-color: var(--border); color: var(--fg); }
+.oc-mini .term-mock__bar { flex: none; background: var(--panel); border-color: var(--border); }
+.oc-mini .term-mock__bar i { background: var(--element); }
+.oc-mini .term-mock__bar span, .oc-mini .t-mut { color: var(--muted); }
+.oc-mini .term-mock__body { flex: 1; min-height: 0; padding-bottom: 0; color: var(--fg); overflow: hidden; }
+.oc-mini .t-head { color: var(--heading); }
+.oc-mini .t-key { color: var(--kw); }
+.oc-mini .t-fn { color: var(--fn); }
+.oc-mini .t-str { color: var(--str); }
+.oc-mini .t-sq { color: var(--primary); }
+.oc-mini__key { margin-left: auto; padding: 0 7px; border: 1px solid var(--border-a); border-radius: 3px; background: var(--element); font-size: 10px; font-weight: 400; line-height: 14px; color: var(--fg); opacity: 0; transition: opacity .25s; }
+.oc-mini__key.is-on { opacity: 1; }
+.oc-mini__in { position: relative; flex: none; padding: 0 12px 10px; }
+.oc-mini__box { padding: 4px 10px; border: 1px solid var(--border-a); border-left: 3px solid var(--primary); border-radius: 5px; background: var(--panel); line-height: 18px; white-space: nowrap; }
+.oc-mini__type { display: flex; align-items: center; min-height: 18px; white-space: pre; }
+.oc-mini__car { display: inline-block; width: 7px; height: 13px; background: var(--fg); animation: oc-mini-blink 1s steps(1) infinite; }
+@keyframes oc-mini-blink { 50% { opacity: 0; } }
+.oc-mini__ac { position: absolute; left: 12px; right: 12px; bottom: 100%; margin-bottom: 3px; padding: 4px 0; border: 1px solid var(--border); border-radius: 5px; background: var(--panel); line-height: 18px; box-shadow: 0 14px 30px -14px rgba(0,0,0,.6); }
+.oc-mini__ac > div { display: flex; gap: 14px; padding: 0 10px; }
+.oc-mini__ac > div > span:first-child { width: 86px; flex: none; }
+.oc-mini__ov { position: absolute; inset: 0; top: 38px; background: rgba(0,0,0,.59); }
+.oc-mini__dlg { position: absolute; left: 50%; top: 12px; width: min(290px, calc(100% - 24px)); transform: translateX(-50%); padding: 10px 0; border-radius: 2px; background: var(--panel); line-height: 18px; }
+.oc-mini__dh { display: flex; justify-content: space-between; padding: 0 18px; }
+.oc-mini__ds { display: flex; align-items: center; min-height: 18px; margin: 8px 0 4px; padding: 0 18px; white-space: pre; }
+.oc-mini__rows > div { margin: 0 6px; padding: 0 12px; white-space: pre; }
+.oc-mini .is-sel { background: var(--primary); color: var(--bg); }
+.oc-mini .is-sel .t-mut { color: var(--bg); }
+.oc-mini__ac[hidden], .oc-mini__ov[hidden] { display: none; }
+.oc-mini .is-sel.is-flash { background: transparent; color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+.oc-mini__wipe { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; background: var(--bg); color: var(--fg); pointer-events: none; }
+.oc-mini__wipe .oc-mini__ac { display: none; }
+.oc-mini__line { position: absolute; left: 0; right: 0; z-index: 4; height: 2px; margin-top: -1px; background: #909bf5; box-shadow: 0 0 14px 2px #909bf5; pointer-events: none; }
+.oc-mini__toast { position: absolute; right: 10px; top: 46px; z-index: 2; padding: 3px 10px; border: 1px solid var(--border); border-left: 3px solid #2bc46f; border-radius: 4px; background: var(--panel); font-size: 11px; line-height: 18px; white-space: nowrap; box-shadow: 0 12px 26px -12px rgba(0,0,0,.6); opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .2s; }
+.oc-mini__toast.is-on { opacity: 1; transform: none; }
+.oc-mini.is-fading .term-mock__body, .oc-mini.is-fading .oc-mini__in { opacity: 0; transition: opacity .3s; }
+@media (hover: none) { .oc-mini__in { display: none; } } /* touch: no hover, so the card keeps its static look */
 .v2-card__chip { position: absolute; left: 16px; top: 16px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.85); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 11px; font-weight: 600; line-height: 16.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--v2-ink); }
 .v2-card__body { display: flex; flex: 1; flex-direction: column; padding: 20px 12px 12px; }
 .v2-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
